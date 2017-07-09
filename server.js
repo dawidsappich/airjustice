@@ -8,13 +8,22 @@ const PORT = 5000;
 // Use native promises
 mongoose.Promise = global.Promise;
 // connect to mongodb
-mongoose.connect(config.uri, /*{ useMongoClient: true },*/ err => {
+mongoose.connect(config.uri, { useMongoClient: true }, err => {
 	if (err) {
 		console.log(`Could not connect to mongodb: ${err}`)
 	} else {
 		console.log(`Connected to database: ${config.db}`);
 	}
 });
+
+let TestSchema = new mongoose.Schema({
+	succes: Boolean,
+	message: String
+}, { collection: 'test' });
+
+let dbModel = mongoose.model('test', TestSchema);
+
+dbModel.create({ succes: true, message: 'User app' });
 
 // setup folder for static content
 app.use(express.static(__dirname + '/public/dist/'));
