@@ -14,7 +14,7 @@ export class DataCollectionService {
 
   getLookups(): Observable<any> {
     this.createAuthApiHeaders();
-    return this._http.post(`${this.domain}/dataService/lookups`, this.options).map(res => res.json());
+    return this._http.post(`${this.domain}/dataService/airports`, this.options).map(res => res.json());
   }
 
   createAuthApiHeaders() {

@@ -8,7 +8,7 @@ const API = require('../config/api');
 module.exports = (router) => {
 
 	/**
-	 * Intercepts all incoming requets to check if the API_KEY is set.
+	 * Intercepts all incoming requets to this route to check if the API_KEY is set and valid
 	 * Only authorized requests are valid and will be handled further
 	 * down by the router configurations
 	 */
@@ -28,8 +28,16 @@ module.exports = (router) => {
 	/**
 	 * configure the different routes
 	 */
-	router.post('/lookups', (req, res) => {
-		res.json({ succes: true, message: 'lookup ok' });
+	router.post('/airports', (req, res) => {
+		// get all airports
+		Lookup.find((err, airports) => {
+			if (err) {
+				res.json({ success: false, message: err });
+			} else {
+				res.json({ success: true, message: airports });
+			}
+		})
 	});
+	
 	return router;
 }
