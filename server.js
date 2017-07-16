@@ -1,14 +1,18 @@
 const path = require('path');
 const express = require('express');
+const router = express.Router();
 const app = express();
 const bodyparser = require('body-parser');
 const mongoose = require('mongoose');
 const config = require('./config/database');
 const PORT = 5000;
 
+const dataServiceRoute = require('./routes/dataService')(router);
+
 // middleware for parsing incoming requests
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
+app.use('/dataService', dataServiceRoute);
 
 /**
  * Mongooose Setup
