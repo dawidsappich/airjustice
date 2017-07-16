@@ -16,12 +16,14 @@ export class FormSetComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   form: FormGroup;
   disabled: boolean;
+  debug: true;
 
   constructor(private dcs: DataCollectionService, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.getAirportLookups();
     this.createForm();
+    this.toggle();
   }
 
   ngOnDestroy() {
@@ -34,6 +36,11 @@ export class FormSetComponent implements OnInit, OnDestroy {
 
   toggleList() {
     $('.ui.dropdown').dropdown();
+  }
+
+  toggle() {
+    $('#select').dropdown();
+    $('#select2').dropdown();
   }
 
   createForm() {
