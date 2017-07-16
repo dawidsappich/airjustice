@@ -15,6 +15,7 @@ export class FormSetComponent implements OnInit, OnDestroy {
   airports: any;
   subscription: Subscription;
   form: FormGroup;
+  disabled: boolean;
 
   constructor(private dcs: DataCollectionService, private fb: FormBuilder) { }
 
@@ -42,6 +43,10 @@ export class FormSetComponent implements OnInit, OnDestroy {
       flightType: ['', Validators.required],
       flightProblemCase: ['', Validators.required]
     })
+  }
+
+  show() {
+    console.log(this.form);
   }
 
 }

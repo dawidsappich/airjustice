@@ -24,8 +24,8 @@
         <i class="dropdown icon"></i>
         <div class="default text">Flugart</div>
         <div class="menu">
-          <div class="item" data-value="1">Direktflug</div>
-          <div class="item" data-value="0">Flug mit Zwischenlandung</div>
+          <div class="item" >Direktflug</div>
+          <div class="item" >Flug mit Zwischenlandung</div>
         </div>
       </div>
     </div>
@@ -35,15 +35,17 @@
     <div class="field" (click)="toggleList()" >
       <label>Problem</label>
       <div class="ui selection dropdown">
-        <input formControlName="flightType" type="hidden">
+        <input formControlName="flightProblemCase" type="hidden">
         <i class="dropdown icon"></i>
         <div class="default text">Problem</div>
         <div class="menu">
-          <div class="item" data-value="1">Direktflug</div>
-          <div class="item" data-value="0">Flug mit Zwischenlandung</div>
+          <div class="item" >Technischer Defekt</div>
+          <div class="item" >Streik</div>
         </div>
       </div>
     </div>
+
+    <button (click)="show()" class="ui button primary" type="text">Weiter</button>
 
   </form>
 
