@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 export class DataCollectionService {
 
   private domain: string = 'http://localhost:5000';
-  private API_KEY = 'ZOEDU314YpfPSkw_dMXG0vr3AW-TjN1PF7XE-RXG';
+  private API_KEY = 'ZOEDU314YpfPSkw_dMXG0vr3AW-TjN1PF7XE-RXG'; // TODO: Create injectable ConfigService
   options: RequestOptions;
 
   constructor(private _http: Http) { }
@@ -17,7 +17,7 @@ export class DataCollectionService {
     return this._http.post(`${this.domain}/dataService/airports`, this.options).map(res => res.json());
   }
 
-  createAuthApiHeaders() {
+  private createAuthApiHeaders() {
     this.options = new RequestOptions({
       headers: new Headers({
         'Content-Type': 'application/json',

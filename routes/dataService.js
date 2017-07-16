@@ -13,7 +13,6 @@ module.exports = (router) => {
 	 * down by the router configurations
 	 */
 	router.use((req, res, next) => {
-		console.log(req.headers);
 		const apiKey = req.headers['apikey']
 		if (apiKey === API.API_KEY) {
 			// ok, invoke next step
@@ -38,6 +37,6 @@ module.exports = (router) => {
 			}
 		})
 	});
-	
+
 	return router;
 }

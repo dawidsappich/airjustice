@@ -5,7 +5,9 @@ const app = express();
 const bodyparser = require('body-parser');
 const mongoose = require('mongoose');
 const config = require('./config/database');
+const cors = require('cors');// ONLY FOR DEVELOPMENT
 const PORT = 5000;
+const PORT_DEV = 4200;
 
 const dataServiceRoute = require('./routes/dataService')(router);
 
@@ -13,6 +15,13 @@ const dataServiceRoute = require('./routes/dataService')(router);
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use('/dataService', dataServiceRoute);
+
+// ONLY FOR DEVELOPMENT
+// allow CORS
+app.use(cors({
+	origin: `http://localhost:${PORT_DEV}`
+}))
+console.warn(`!!!!!! CORS is allowed for localhost:${PORT_DEV} REMOVE before deployment !!!!!!!!`);
 
 /**
  * Mongooose Setup
