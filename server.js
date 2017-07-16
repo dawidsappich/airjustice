@@ -16,15 +16,6 @@ mongoose.connect(config.uri, { useMongoClient: true }, err => {
 	}
 });
 
-let TestSchema = new mongoose.Schema({
-	succes: Boolean,
-	message: String
-}, { collection: 'test' });
-
-let dbModel = mongoose.model('test', TestSchema);
-
-dbModel.create({ succes: true, message: 'User app' });
-
 // setup folder for static content
 app.use(express.static(__dirname + '/public/dist/'));
 
