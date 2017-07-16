@@ -1,10 +1,18 @@
 const path = require('path');
 const express = require('express');
 const app = express();
+const bodyparser = require('body-parser');
 const mongoose = require('mongoose');
 const config = require('./config/database');
 const PORT = 5000;
 
+// middleware for parsing incoming requests
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({ extended: false }));
+
+/**
+ * Mongooose Setup
+ */
 // Use native promises
 mongoose.Promise = global.Promise;
 // connect to mongodb

@@ -11,7 +11,7 @@ export class DataCollectionService {
   constructor(private _http: Http) { }
 
   getLookups(): Observable<any> {
-    return this._http.get(`${this.domain}/lookups`).map(res => res.json);
+    return this._http.get(`${this.domain}/lookups`).map(res => res.json());
   }
 
 }
