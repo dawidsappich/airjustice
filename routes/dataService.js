@@ -13,13 +13,14 @@ module.exports = (router) => {
 	 * down by the router configurations
 	 */
 	router.use((req, res, next) => {
-		const apiKey = req.headers['apikey']
-		if (apiKey === API.API_KEY) {
+		const token = req.headers['authorization'];
+		console.log(req);
+		if (token === API.API_KEY) {
 			// ok, invoke next step
 			next();
-		} else if (!apiKey) {
+		} else if (!token) {
 			res.json({ success: false, message: 'no api key provided' });
-		} else if (apiKey !== API.API_KEY) {
+		} else if (token !== API.API_KEY) {
 			res.json({ success: false, message: 'invalid api key provided' });
 		}
 	})

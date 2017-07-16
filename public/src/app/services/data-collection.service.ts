@@ -3,6 +3,7 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
+
 @Injectable()
 export class DataCollectionService {
 
@@ -12,16 +13,16 @@ export class DataCollectionService {
 
   constructor(private _http: Http) { }
 
-  getLookups(): Observable<any> {
+  getLookups() {
     this.createAuthApiHeaders();
-    return this._http.post(`${this.domain}/dataService/airports`, this.options).map(res => res.json());
+    return this._http.post(`${this.domain}/dataService/airports`, {}, this.options).map(res => res.json());
   }
 
   private createAuthApiHeaders() {
     this.options = new RequestOptions({
       headers: new Headers({
-        'Content-Type': 'application/json',
-        'apikey': this.API_KEY
+        'content-type': 'application/json',
+        'authorization': this.API_KEY
       })
     });
   }
