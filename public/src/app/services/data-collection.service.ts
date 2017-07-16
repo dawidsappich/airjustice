@@ -13,7 +13,7 @@ export class DataCollectionService {
 
   constructor(private _http: Http) { }
 
-  getLookups() {
+  getAirportLookups() {
     this.createAuthApiHeaders();
     return this._http.post(`${this.domain}/dataService/airports`, {}, this.options).map(res => res.json());
   }

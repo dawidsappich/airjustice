@@ -14,7 +14,6 @@ module.exports = (router) => {
 	 */
 	router.use((req, res, next) => {
 		const token = req.headers['authorization'];
-		console.log(req);
 		if (token === API.API_KEY) {
 			// ok, invoke next step
 			next();

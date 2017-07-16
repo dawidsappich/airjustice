@@ -3,4 +3,42 @@
     Schritt 1.
     <div class="sub header">Dieser Schritt ist immer vorhanden</div>
   </h1>
+
+  <form [formGroup]="form" class="ui form" novalidate>
+    <div class="fields">
+      <div class="eight wide field">
+        <label>Flugnummer</label>
+        <input formControlName="flightNr" placeholder="Flugnummer">
+      </div>
+      <div class="eight wide field">
+        <label>Fludatum</label>
+        <input formControlName="flightDate" placeholder="Abflugdatum">
+      </div>
+    </div>
+
+    <!-- Auswahlliste Flugart   -->
+    <div class="field">
+      <label>Flugart</label>
+      <div class="ui selection dropdown">
+        <input formControlName="flightType" placeholder="Flugart">
+        <i class="dropdown icon"></i>
+        <div class="default text">Flugart</div>
+      </div>
+    </div>
+    <!-- Auswahlliste Problem  -->
+    <div class="field">
+      <label>Problem</label>
+      <div class="ui selection dropdown">
+        <input name="gender" type="hidden">
+        <i class="dropdown icon"></i>
+        <div class="default text">Problem</div>
+        <div class="menu">
+          <div class="item" data-value="1">Direktflug</div>
+          <div class="item" data-value="0">Flug mit zwischenlandung</div>
+        </div>
+      </div>
+    </div>
+
+  </form>
+
 </div>
