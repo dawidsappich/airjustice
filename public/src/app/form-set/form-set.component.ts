@@ -1,7 +1,9 @@
 import { DataCollectionService } from './../services/data-collection.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+declare var $: any;
 
 @Component({
   selector: 'form-set',
@@ -17,21 +19,29 @@ export class FormSetComponent implements OnInit, OnDestroy {
   constructor(private dcs: DataCollectionService, private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.fetchData();
-    this.form = this.fb.group({
-      flightNr: ['', Validators.required],
-      flightDate: ['', Validators.required],
-      flightType: ['', Validators.required],
-      flightProblemCase:['',Validators.required]
-    })
+    this.getAirportLookups();
+    this.createForm();
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 
-  fetchData() {
+  getAirportLookups() {
     this.subscription = this.dcs.getAirportLookups().subscribe(data => this.airports = data.message);
+  }
+
+  toggleList() {
+    $('.ui.dropdown').dropdown();
+  }
+
+  createForm() {
+    this.form = this.fb.group({
+      flightNr: ['', Validators.required],
+      flightDate: ['', Validators.required],
+      flightType: ['', Validators.required],
+      flightProblemCase: ['', Validators.required]
+    })
   }
 
 }

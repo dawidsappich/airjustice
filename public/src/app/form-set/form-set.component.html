@@ -16,25 +16,31 @@
       </div>
     </div>
 
-    <!-- Auswahlliste Flugart   -->
-    <div class="field">
+    <!-- Auswahlliste Flugart  -->
+    <div class="field" (click)="toggleList()">
       <label>Flugart</label>
       <div class="ui selection dropdown">
-        <input formControlName="flightType" placeholder="Flugart">
+        <input formControlName="flightType" type="hidden">
         <i class="dropdown icon"></i>
         <div class="default text">Flugart</div>
+        <div class="menu">
+          <div class="item" data-value="1">Direktflug</div>
+          <div class="item" data-value="0">Flug mit Zwischenlandung</div>
+        </div>
       </div>
     </div>
+
+
     <!-- Auswahlliste Problem  -->
-    <div class="field">
+    <div class="field" (click)="toggleList()" >
       <label>Problem</label>
       <div class="ui selection dropdown">
-        <input name="gender" type="hidden">
+        <input formControlName="flightType" type="hidden">
         <i class="dropdown icon"></i>
         <div class="default text">Problem</div>
         <div class="menu">
           <div class="item" data-value="1">Direktflug</div>
-          <div class="item" data-value="0">Flug mit zwischenlandung</div>
+          <div class="item" data-value="0">Flug mit Zwischenlandung</div>
         </div>
       </div>
     </div>
