@@ -19,7 +19,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "../node_modules/semantic-ui-css/semantic.min.css",
+        "../node_modules/semantic-ui-css/semantic.chubby.min.css",
         "styles.css"
       ],
       "scripts": [

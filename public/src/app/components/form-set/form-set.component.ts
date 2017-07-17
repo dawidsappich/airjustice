@@ -6,7 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 declare var $: any;
 
 @Component({
-  selector: 'form-set',
+  selector: 'app-form-set',
   templateUrl: './form-set.component.html',
   styleUrls: ['./form-set.component.css']
 })

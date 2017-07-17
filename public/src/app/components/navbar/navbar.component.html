@@ -1,6 +1,24 @@
-<nav class="ui borderless menu">
-  <div class="ui container">
-    <a class="item" routerLink="/">Home</a>
-    <a class="item" routerLink="/claim">Anforderung prüfen</a>
+<div class="ui borderless fixed inverted massive menu">
+  <div class="ui container grid">
+    <div class="computer only row">
+      <a class="item" routerLink="/">Home</a>
+      <a class="item" routerLink="/claim">Antrag prüfen</a>
+      <a class="item">Kontakt</a>
+    </div>
+    <div class="tablet mobile only row">
+      <a class="header item"> Airjustice</a>
+      <div class="right menu">
+        <a class="menu item">
+          <div class="ui basic icon toggle button">
+            <i class="content icon"></i>
+          </div>
+        </a>
+      </div>
+      <div class="ui vertical inverted accordion borderless fluid menu">
+        <a class="item" routerLink="/">Home</a>
+        <a class="item" routerLink="/claim">Antrag prüfen</a>
+        <a class="item"> Kontakt</a>
+      </div>
+    </div>
   </div>
-</nav>
+</div>

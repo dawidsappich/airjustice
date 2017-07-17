@@ -1,32 +1,38 @@
-<div class="ui container">
-  <h1 class="ui block header">
-    Schritt 1.
-    <div class="sub header">Dieser Schritt ist immer vorhanden</div>
-  </h1>
+<div class="ui container main">
 
-  <form [formGroup]="form" class="ui form" novalidate>
+  <form [formGroup]="form" class="ui small equal width form" novalidate>
+
     <div class="fields">
       <div class="field">
         <label>Flugnummer</label>
         <input formControlName="flightNr" placeholder="Flugnummer">
       </div>
+
       <div class="field">
         <label>Fludatum</label>
         <input formControlName="flightDate" placeholder="Abflugdatum">
       </div>
     </div>
 
-    <select (click)="toggle()" formControlName="flightType" class="ui dropdown" id="select">
-       <option value="">Flugart</option>
-      <option value="male">Direktflug</option>
-      <option value="female">Flug mit Umstieg</option>
-    </select>
+    <div class="fields">
+      <div class="field">
+        <label>Flugart</label>
+        <select (click)="toggle()" formControlName="flightType" class="ui dropdown" id="select">
+        <option value="">Flugart</option>
+        <option value="male">Direktflug</option>
+        <option value="female">Flug mit Umstieg</option>
+      </select>
+      </div>
 
-    <select (click)="toggle()" formControlName="flightProblemCase" class="ui dropdown" id="select2">
-      <option value="">Problem</option>
-      <option value="male">Technischer Defekt</option>
-      <option value="female">Streik</option>
-    </select>
+      <div class="field">
+        <label>Problem</label>
+        <select (click)="toggle()" formControlName="flightProblemCase" class="ui dropdown" id="select2">
+        <option value="">Problem</option>
+        <option value="male">Technischer Defekt</option>
+        <option value="female">Streik</option>
+      </select>
+      </div>
+    </div>
 
     <button [class.disabled]="!form.valid" (click)="show()" class="ui button primary" type="text">Weiter</button>
 
