@@ -5,12 +5,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { FormSetComponent } from './form-set/form-set.component';
+import { FormSetComponent } from './components/form-set/form-set.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormSetComponent
+    FormSetComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

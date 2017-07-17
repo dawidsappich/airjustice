@@ -1,4 +1,4 @@
-import { DataCollectionService } from './../services/data-collection.service';
+import { DataCollectionService } from './../../services/data-collection.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
