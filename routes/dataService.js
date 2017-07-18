@@ -63,6 +63,8 @@ module.exports = (router) => {
 					}
 				}
 			})
+				.limit(10)
+				.sort({ value: 1 })
 		}
 	})
 

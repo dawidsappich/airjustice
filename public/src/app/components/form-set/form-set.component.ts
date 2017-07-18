@@ -10,7 +10,7 @@ declare var $: any;
   templateUrl: './form-set.component.html',
   styleUrls: ['./form-set.component.css']
 })
-export class FormSetComponent implements OnInit, OnDestroy {
+export class FormSetComponent implements OnInit {
 
   airports: any;
   subscription: Subscription;
@@ -26,9 +26,9 @@ export class FormSetComponent implements OnInit, OnDestroy {
     this.toggle(); // nessesary UI fix for form input type select
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //   this.subscription.unsubscribe();
+  // }
 
   getAirportLookups() {
     this.subscription = this.dcs.getAirportLookups().subscribe(data => this.airports = data.message);
