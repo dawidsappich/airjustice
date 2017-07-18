@@ -4,7 +4,7 @@
     <div class="fields">
       <div class="field">
         <label>Start</label>
-        <input formControlName="start" placeholder="Flughafen">
+        <input (keyup)="searchValue($event.target.value)" formControlName="start" placeholder="Flughafen">
       </div>
 
       <div class="field">

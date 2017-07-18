@@ -45,12 +45,13 @@ module.exports = (router) => {
 	/**
 	 * Return one airport
 	 */
-	router.get('/airport/:code', (req, res) => {
+	router.get('/airport/:query', (req, res) => {
 		// Find one airport
-		if (!req.params.code) {
-			res.json({ success: false, message: 'No code provided' });
+		if (!req.params.query) {
+			res.json({ success: false, message: 'No query provided' });
 		} else {
-			Lookup.findOne({ code: req.params.code }, 'code value', (err, doc) => {
+			const regex = new RegExp(req.params.query, 'i');
+			Lookup.find({ $or: [{ code: { $regex: regex } }, { value: { $regex: regex } }] }, 'code value', (err, doc) => {
 				if (err) {
 					res.json({ success: false, message: err });
 				} else {
