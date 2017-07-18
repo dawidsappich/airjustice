@@ -22,7 +22,7 @@ export class DataCollectionService implements OnInit {
   }
 
   getAirport(query: string): Observable<any>{
-    return this._http.get(`${this.domain}/dataService/airport`, this.options).map(res => res.json());
+    return this._http.get(`${this.domain}/dataService/airport/${query.toUpperCase()}`, this.options).map(res => res.json());
   }
 
   private createAuthApiHeaders() {

@@ -27,6 +27,10 @@ module.exports = (router) => {
 	/**
 	 * configure the different routes
 	 */
+
+	/**
+	 * Return all airports
+	 */
 	router.post('/airports', (req, res) => {
 		// get all airports
 		Lookup.find((err, airports) => {
@@ -37,6 +41,29 @@ module.exports = (router) => {
 			}
 		})
 	});
+
+	/**
+	 * Return one airport
+	 */
+	router.get('/airport/:code', (req, res) => {
+		// Find one airport
+		if (!req.params.code) {
+			res.json({ success: false, message: 'No code provided' });
+		} else {
+			Lookup.findOne({ code: req.params.code }, 'code value', (err, doc) => {
+				if (err) {
+					res.json({ success: false, message: err });
+				} else {
+					// found a document in collection
+					if (doc) {
+						res.json({ success: true, message: doc });
+					} else {
+						res.json({ success: true, message: 'no matching result' });
+					}
+				}
+			})
+		}
+	})
 
 	return router;
 }
