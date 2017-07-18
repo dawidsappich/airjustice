@@ -1,43 +1,49 @@
-<div class="ui container main">
+<div class="ui grid centered container first">
 
-  <form [formGroup]="form" class="ui small equal width form" novalidate>
+  <div class="twelve wide centerd column">
+    <form [formGroup]="form" class="ui equal width small form" novalidate>
 
-    <div class="fields">
-      <div class="field">
-        <label>Flugnummer</label>
-        <input formControlName="flightNr" placeholder="Flugnummer">
+      <div class="fields">
+        <div class="field">
+          <label>Flugnummer</label>
+          <input formControlName="flightNr" placeholder="Flugnummer">
+        </div>
+
+        <div class="field">
+          <label>Fludatum</label>
+          <input formControlName="flightDate" placeholder="Abflugdatum">
+        </div>
       </div>
 
-      <div class="field">
-        <label>Fludatum</label>
-        <input formControlName="flightDate" placeholder="Abflugdatum">
-      </div>
-    </div>
-
-    <div class="fields">
-      <div class="field">
-        <label>Flugart</label>
-        <select (click)="toggle()" formControlName="flightType" class="ui dropdown" id="select">
+      <div class="fields">
+        <div class="field">
+          <label>Flugart</label>
+          <select (click)="toggle()" formControlName="flightType" class="ui dropdown" id="select">
         <option value="">Flugart</option>
         <option value="male">Direktflug</option>
         <option value="female">Flug mit Umstieg</option>
       </select>
-      </div>
+        </div>
 
-      <div class="field">
-        <label>Problem</label>
-        <select (click)="toggle()" formControlName="flightProblemCase" class="ui dropdown" id="select2">
+        <div class="field">
+          <label>Problem</label>
+          <select (click)="toggle()" formControlName="flightProblemCase" class="ui dropdown" id="select2">
         <option value="">Problem</option>
         <option value="male">Technischer Defekt</option>
         <option value="female">Streik</option>
       </select>
+        </div>
       </div>
+
+      <button [class.disabled]="!form.valid" (click)="show()" class="ui button primary" type="text">Weiter</button>
+
+    </form>
+  </div>
+
+  <div class="row">
+    <div class="twelve wide column">
+      <app-direct-flight></app-direct-flight>
     </div>
-
-    <button [class.disabled]="!form.valid" (click)="show()" class="ui button primary" type="text">Weiter</button>
-
-  </form>
-
-  <app-direct-flight></app-direct-flight>
+  </div>
 
 </div>
