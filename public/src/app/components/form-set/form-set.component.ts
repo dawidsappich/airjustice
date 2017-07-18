@@ -21,9 +21,9 @@ export class FormSetComponent implements OnInit, OnDestroy {
   constructor(private dcs: DataCollectionService, private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.getAirportLookups();
+    // this.getAirportLookups();
     this.createForm();
-    this.toggle();
+    this.toggle(); // nessesary UI fix for form input type select
   }
 
   ngOnDestroy() {
