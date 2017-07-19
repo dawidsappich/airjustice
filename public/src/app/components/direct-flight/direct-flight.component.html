@@ -4,12 +4,12 @@
     <div class="fields">
       <div class="field">
         <label>Start</label>
-        <input (keyup)="searchValue($event.target.value, 'start')" formControlName="start" placeholder="Flughafen">
+        <input (keyup)="search($event.target.value)" formControlName="start" placeholder="Flughafen">
       </div>
 
       <div class="field">
         <label>Ziel</label>
-        <input (keyup)="searchValue($event.target.value, 'end')" formControlName="end" placeholder="Flughafen">
+        <input formControlName="end" placeholder="Flughafen">
       </div>
     </div>
 
@@ -18,20 +18,20 @@
   <div class="ui grid container">
 
     <div class="six wide column">
-      <div *ngIf="resultsStart" class="ui middle aligned selection animated list">
-        <div *ngFor="let entry of resultsStart" class="item">
-          <div (click)="addValue(entry.value, 'start')" class="header">{{ entry.value }}</div>{{ entry.code }}
+      <div class="ui middle aligned selection animated list">
+         <div *ngFor="let entry of resultsStart | async" class="item">
+           <div class="header">{{ entry.value }}</div>{{ entry.code }}
         </div>
       </div>
     </div>
 
-    <div class="six wide column">
+    <!-- <div class="six wide column">
       <div *ngIf="resultsEnd" class="ui middle aligned selection animated list">
         <div *ngFor="let entry of resultsEnd" class="item">
           <div (click)="addValue(entry.value, 'end')" class="header">{{ entry.value }}</div>{{ entry.code }}
         </div>
       </div>
-    </div>
+    </div> -->
 
   </div>
 

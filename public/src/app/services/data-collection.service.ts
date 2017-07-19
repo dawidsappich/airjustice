@@ -1,3 +1,4 @@
+import { AirportSearchResult } from './../models/AirportSearchResult';
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -18,10 +19,9 @@ export class DataCollectionService {
     return this._http.post(`${this.domain}/dataService/airports`, {}, this.options).map(res => res.json());
   }
 
-  getAirport(query: string): Observable<any>{
-    if (!query || query == '') return;
+  getAirport(query: string): Observable<AirportSearchResult[]>{
     this.createAuthApiHeaders();
-    return this._http.get(`${this.domain}/dataService/airport/${query.toUpperCase()}`, this.options).map(res => res.json());
+    return this._http.get(`${this.domain}/dataService/airport/${query.toUpperCase()}`, this.options).map(res => res.json().message);
   }
 
   private createAuthApiHeaders() {
