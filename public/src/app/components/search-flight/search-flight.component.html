@@ -1,0 +1,23 @@
+<div class="ui container">
+  <form [formGroup]="form" class="ui small equal width form" novalidate>
+
+    <div class="field">
+      <label>Start</label>
+      <input (keyup)="search($event.target.value)" formControlName="airport" placeholder="Flughafen">
+    </div>
+
+  </form>
+
+  <div class="ui grid container">
+
+    <div class="six wide column">
+      <div class="ui middle aligned selection animated list">
+        <div *ngFor="let entry of results | async" class="item">
+          <div (click)="addValue(entry.value)" class="header">{{ entry.value }}</div>{{ entry.code }}
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

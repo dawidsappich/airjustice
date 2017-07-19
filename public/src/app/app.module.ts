@@ -10,7 +10,7 @@ import { FormSetComponent } from './components/form-set/form-set.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { CheckClaimComponent } from './components/check-claim/check-claim.component';
-import { DirectFlightComponent } from './components/direct-flight/direct-flight.component';
+import { SearchFlightComponent } from './components/search-flight/search-flight.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { DirectFlightComponent } from './components/direct-flight/direct-flight.
     NavbarComponent,
     HomeComponent,
     CheckClaimComponent,
-    DirectFlightComponent
+    SearchFlightComponent
   ],
   imports: [
     BrowserModule,

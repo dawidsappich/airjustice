@@ -18,15 +18,14 @@ import { DataCollectionService } from './../../services/data-collection.service'
 
 
 @Component({
-  selector: 'app-direct-flight',
-  templateUrl: './direct-flight.component.html',
-  styleUrls: ['./direct-flight.component.css']
+  selector: 'app-search-flight',
+  templateUrl: './search-flight.component.html',
+  styleUrls: ['./search-flight.component.css']
 })
-export class DirectFlightComponent implements OnInit {
+export class SearchFlightComponent implements OnInit {
 
   form: FormGroup;
-  resultsStart: Observable<any[]>;
-  resultsEnd: Observable<any[]>;
+  results: Observable<any[]>;
   private searchTerms = new Subject<string>();
   value: any;
 
@@ -34,35 +33,32 @@ export class DirectFlightComponent implements OnInit {
 
   // push new term into observable
   search(term: string) {
-    this.searchTerms.next(term);
+    if (term && term.length > 1) {
+      this.searchTerms.next(term);
+    }
+    if (term == '') {
+      this.searchTerms.next('');
+    }
   }
-
-  // {
-  //     "success": true,
-  //     "message": [
-  //         {
-  //             "_id": "596b841da929f141f3989dbc",
-  //             "code": "AAH",
-  //             "value": "Aachen"
-  //         }
-  //     ]
-  // }
 
   ngOnInit() {
     this.form = this.fb.group({
-      start: ['', Validators.required],
-      end: ['', Validators.required]
+      airport: ['', Validators.required]
     });
 
-    this.resultsStart = this.searchTerms
-      .debounceTime(500)
+    this.results = this.searchTerms
+      .debounceTime(300)
       .distinctUntilChanged()
       .switchMap(term => term ? this.dcs.getAirport(term) : Observable.of<any>([]))
       .catch(err => {
         console.log(err);
         return Observable.of<any>([])
       });
+  }
 
+  addValue(value) {
+    this.form.get('airport').setValue(value);
+    this.searchTerms.next(''); // reset list by emitting an empty string for the Observable
   }
 
 }
