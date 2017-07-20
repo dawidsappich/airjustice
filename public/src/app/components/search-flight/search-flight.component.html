@@ -2,12 +2,11 @@
   <form [formGroup]="form" class="ui small form" novalidate>
 
     <div class="field">
-      <label>Start</label>
+      <ng-content></ng-content>
       <input (keyup)="search($event.target.value)" formControlName="airport" placeholder="Flughafen">
     </div>
 
   </form>
-
 
   <div class="column">
     <div class="ui middle aligned selection animated list">
