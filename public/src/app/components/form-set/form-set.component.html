@@ -10,9 +10,15 @@
         </div>
 
         <div class="field">
-          <label>Fludatum</label>
-          <input formControlName="flightDate" placeholder="Abflugdatum">
+          <div class="ui calendar" id="datepicker">
+            <label>Fludatum</label>
+            <div class="ui input left icon">
+              <i class="calendar icon"></i>
+              <input formControlName="flightDate" placeholder="Abflugdatum">
+            </div>
+          </div>
         </div>
+        
       </div>
 
       <div class="fields">
@@ -52,5 +58,7 @@
       </app-search-flight>
     </div>
   </div>
+
+
 
 </div>

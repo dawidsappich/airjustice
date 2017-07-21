@@ -21,21 +21,13 @@ export class FormSetComponent implements OnInit {
   constructor(private dcs: DataCollectionService, private fb: FormBuilder) { }
 
   ngOnInit() {
-    // this.getAirportLookups();
     this.createForm();
     this.toggle(); // nessesary UI fix for form input type select
+    $('#datepicker').calendar();
   }
-
-  // ngOnDestroy() {
-  //   this.subscription.unsubscribe();
-  // }
 
   getAirportLookups() {
     this.subscription = this.dcs.getAirportLookups().subscribe(data => this.airports = data.message);
-  }
-
-  toggleList() {
-    $('.ui.dropdown').dropdown();
   }
 
   toggle() {
@@ -55,5 +47,7 @@ export class FormSetComponent implements OnInit {
   show() {
     console.log(this.form);
   }
+
+
 
 }

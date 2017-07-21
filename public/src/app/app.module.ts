@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { FormSetComponent } from './components/form-set/form-set.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
-import { CheckClaimComponent } from './components/check-claim/check-claim.component';
+import { FormsComponent } from './components/forms/forms.component';
 import { SearchFlightComponent } from './components/search-flight/search-flight.component';
 
 @NgModule({
@@ -18,7 +18,7 @@ import { SearchFlightComponent } from './components/search-flight/search-flight.
     FormSetComponent,
     NavbarComponent,
     HomeComponent,
-    CheckClaimComponent,
+    FormsComponent,
     SearchFlightComponent
   ],
   imports: [

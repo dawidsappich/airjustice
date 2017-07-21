@@ -1,4 +1,4 @@
-import { CheckClaimComponent } from './../components/check-claim/check-claim.component';
+import { FormsComponent } from './../components/forms/forms.component';
 import { HomeComponent } from './../components/home/home.component';
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
@@ -9,12 +9,12 @@ const routes: Routes = [
 		component: HomeComponent
 	},
 	{
-		path: 'claim',
-		component:CheckClaimComponent
+		path: 'forms',
+		component: FormsComponent
 	},
 	{
 		path: '**',
-		component:HomeComponent
+		component: HomeComponent
 	}
 ]
 
