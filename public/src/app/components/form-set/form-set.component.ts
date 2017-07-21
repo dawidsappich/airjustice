@@ -1,5 +1,5 @@
 import { DataCollectionService } from './../../services/data-collection.service';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -22,8 +22,7 @@ export class FormSetComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
-    this.toggle(); // nessesary UI fix for form input type select
-    $('#datepicker').calendar();
+    this.toggle();
   }
 
   getAirportLookups() {
@@ -38,16 +37,9 @@ export class FormSetComponent implements OnInit {
   createForm() {
     this.form = this.fb.group({
       flightNr: ['', Validators.required],
-      flightDate: ['', Validators.required],
       flightType: ['', Validators.required],
       flightProblemCase: ['', Validators.required]
     })
   }
-
-  show() {
-    console.log(this.form);
-  }
-
-
 
 }

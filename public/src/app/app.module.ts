@@ -11,6 +11,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { FormsComponent } from './components/forms/forms.component';
 import { SearchFlightComponent } from './components/search-flight/search-flight.component';
+import { DatePickerComponent } from './components/date-picker/date-picker.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SearchFlightComponent } from './components/search-flight/search-flight.
     NavbarComponent,
     HomeComponent,
     FormsComponent,
-    SearchFlightComponent
+    SearchFlightComponent,
+    DatePickerComponent
   ],
   imports: [
     BrowserModule,
