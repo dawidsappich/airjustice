@@ -1,4 +1,5 @@
 const Lookup = require('../models/lookup');
+const FormField = require('../models/formField');
 const API = require('../config/api');
 
 /**
@@ -43,7 +44,7 @@ module.exports = (router) => {
 	});
 
 	/**
-	 * Return one airport
+	 * Return one airport from mongodb
 	 */
 	router.get('/airport/:query', (req, res) => {
 		// Find one airport
@@ -65,6 +66,27 @@ module.exports = (router) => {
 			})
 				.limit(10)
 				.sort({ value: 1 })
+		}
+	})
+
+	/**
+	 * Return one form descriptor from mongodb
+	 */
+	router.get('/forms/:query', (req, res) => {
+		if (!req.params.query) {
+			res.json({ success: false, message: 'No query provided' });
+		} else {
+			FormField.findOne({ list: req.params.query }, (err, formfield) => {
+				if (err) {
+					res.json({ success: false, message: err });
+				} else {
+					if (formfield) {
+						res.json({ success: true, message: formfield });
+					} else {
+						res.json({ success: true, message: 'no matching result' });
+					}
+				}
+			});
 		}
 	})
 

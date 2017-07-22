@@ -18,7 +18,10 @@ export class FormSetComponent implements OnInit {
   disabled: boolean;
   debug: true;
 
-  constructor(private dcs: DataCollectionService, private fb: FormBuilder) { }
+  constructor(
+    private dcs: DataCollectionService,
+    private fb: FormBuilder,
+  ) { }
 
   ngOnInit() {
     this.createForm();

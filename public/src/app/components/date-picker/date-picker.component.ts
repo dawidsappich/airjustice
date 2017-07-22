@@ -33,7 +33,7 @@ export class DatePickerComponent implements OnInit {
         now: 'Jetzt'
       },
       onChange: (date, text, mode) => {
-        // $('#datepickerInput').innerHtml = text;
+
       }
     });
   }
