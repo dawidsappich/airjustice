@@ -8,20 +8,21 @@
     <form [formGroup]="form" class="ui equal width small form" novalidate>
 
       <div class="fields">
-        <div class="required field">
+        <div [ngClass]="{'error': (form.controls.flightNr.dirty && ( notValidFlightNumber || form.controls.flightNr.errors )), 'success': (!form.controls.flightNr.errors && !notValidFlightNumber)}" class="required field">
           <label>Flugnummer</label>
           <input formControlName="flightNr" placeholder="Flugnummer">
         </div>
 
-        <div class="required field">
+        <div [ngClass]="{'error': (form.controls.flightDate.dirty && ( notValidDate || form.controls.flightDate.errors )), 'success': (!form.controls.flightDate.errors && !notValidDate)}" class="required field">
           <label>Flugdatum</label>
-          <app-date-picker (er)="test" ></app-date-picker>
+          <!-- <app-date-picker (er)="test" ></app-date-picker> -->
+           <input formControlName="flightDate" placeholder="dd.mm.yyyy">
         </div>
 
       </div>
 
       <div class="fields">
-        <div class="required field">
+        <div [ngClass]="{'error': (form.controls.flightType.dirty && !form.controls.flightType.valid)}" class="required field">
           <label>Flugart</label>
           <select formControlName="flightType" class="ui dropdown" id="select">
             <option value="">Flugart</option>
@@ -38,9 +39,9 @@
         </div>
       </div>
 
-      <button [class.disabled]="!form.valid" (click)="show()" class="ui button primary" type="text">Weiter</button>
-
+      <button [class.disabled]="!form.valid" class="ui button primary" type="text">Weiter</button>
     </form>
+
   </div>
 
 

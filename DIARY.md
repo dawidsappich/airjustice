@@ -19,3 +19,4 @@
 + Validerung des Formulars
 + Speichern der Einagben aus dem ersten Formular in der Datenbank
 + Probleme mit 3rd party callback beim Datepicker, Wert wird vom formCotrol nicht erkannt. ChangeDetection?
++ Date-pciker erst einmal auskommetiert, einfaches Inputfeld mit Validierung realisiert um weiter zu kommen - _ -
