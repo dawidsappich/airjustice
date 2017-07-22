@@ -17,7 +17,7 @@ export class FormSetComponent implements OnInit {
   form: FormGroup;
   disabled: boolean;
   processing = false;
-  debug = true;
+  debug = false;
 
   message: any;
   messageClass = '';
@@ -95,6 +95,7 @@ export class FormSetComponent implements OnInit {
         this.messageClass = 'error';
       } else {
         this.messageClass = 'success';
+        // info: setTimeout is only fpr developement
         setTimeout(() => {
           this.processing = false;
           this.message = '';

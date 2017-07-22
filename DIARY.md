@@ -16,7 +16,7 @@
 + Datenmodell für Formularfelder konzipieren
 + Auswahllisten für Feld Problem und Flugart in DB ausgelagert bzw. in der DB angelegt als collection _forms_
 + Refactoring der Listen, so dass diese aus der DB geladen werden
-+ Validerung des Formulars
-+ Speichern der Einagben aus dem ersten Formular in der Datenbank
 + Probleme mit 3rd party callback beim Datepicker, Wert wird vom formCotrol nicht erkannt. ChangeDetection?
 + Date-pciker erst einmal auskommetiert, einfaches Inputfeld mit Validierung realisiert um weiter zu kommen - _ -
++ Validerung des Formulars
++ Speichern der Einagben aus dem ersten Formular in der Datenbank d.h. Backend route eingericht und frontend eingerichtet. Für Testzwecke wird das Formular nach zwei Sekunden wieder zurückegesetzt. In der finalen app wird der nächste Schritt als Formular geladen
