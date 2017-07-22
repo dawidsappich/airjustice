@@ -8,20 +8,20 @@
     <form [formGroup]="form" class="ui equal width small form" novalidate>
 
       <div class="fields">
-        <div class="field">
+        <div class="required field">
           <label>Flugnummer</label>
           <input formControlName="flightNr" placeholder="Flugnummer">
         </div>
 
-        <div class="field">
+        <div class="required field">
           <label>Flugdatum</label>
-          <app-date-picker></app-date-picker>
+          <app-date-picker (er)="test" ></app-date-picker>
         </div>
 
       </div>
 
       <div class="fields">
-        <div class="field">
+        <div class="required field">
           <label>Flugart</label>
           <select formControlName="flightType" class="ui dropdown" id="select">
             <option value="">Flugart</option>
@@ -29,7 +29,7 @@
           </select>
         </div>
 
-        <div class="field">
+        <div class="required field">
           <label>Problem</label>
           <select formControlName="flightProblemCase" class="ui dropdown" id="select2">
             <option value="">Problem</option>
@@ -38,10 +38,12 @@
         </div>
       </div>
 
-      <button [class.disabled]="!form.valid" class="ui button primary" type="text">Weiter</button>
+      <button [class.disabled]="!form.valid" (click)="show()" class="ui button primary" type="text">Weiter</button>
 
     </form>
   </div>
+
+
 
   <div class="row">
     <div class="six wide column">

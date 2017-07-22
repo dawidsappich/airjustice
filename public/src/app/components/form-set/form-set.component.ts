@@ -1,5 +1,5 @@
 import { DataCollectionService } from './../../services/data-collection.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -20,6 +20,7 @@ export class FormSetComponent implements OnInit {
 
   problemType = {};
   flightType = {}
+  @Input() test: string;
 
   constructor(
     private dcs: DataCollectionService,
@@ -37,7 +38,13 @@ export class FormSetComponent implements OnInit {
 
   initForms() {
     this.form = this.fb.group({
-      flightNr: ['', Validators.required],
+      flightNr: ['', Validators.compose([
+        Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(10),
+        this.isAplhpaNumeric
+      ])],
+      flightDate:[''],
       flightType: ['', Validators.required],
       flightProblemCase: ['', Validators.required]
     })
@@ -52,6 +59,15 @@ export class FormSetComponent implements OnInit {
     this.dcs.getFormFieldDescription('flightType').subscribe(payload => {
       this.flightType = payload;
     })
+  }
+
+  isAplhpaNumeric(controls) {
+    const regex = new RegExp(/^[a-zA-Z0-9]+$/);
+    return (regex.test(controls.value)) ? null : { notValidFlightNumber: true };
+  }
+
+  show() {
+    console.log(this.test);
   }
 
 }

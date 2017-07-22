@@ -16,3 +16,6 @@
 + Datenmodell für Formularfelder konzipieren
 + Auswahllisten für Feld Problem und Flugart in DB ausgelagert bzw. in der DB angelegt als collection _forms_
 + Refactoring der Listen, so dass diese aus der DB geladen werden
++ Validerung des Formulars
++ Speichern der Einagben aus dem ersten Formular in der Datenbank
++ Probleme mit 3rd party callback beim Datepicker, Wert wird vom formCotrol nicht erkannt. ChangeDetection?

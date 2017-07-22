@@ -11,7 +11,6 @@ declare var $: any;
 export class DatePickerComponent implements OnInit {
 
   flightDate: FormControl;
-  @Output() event: EventEmitter<string>;
 
   constructor() { }
 
@@ -31,13 +30,9 @@ export class DatePickerComponent implements OnInit {
         monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         today: 'Heute',
         now: 'Jetzt'
-      },
-      onChange: (date, text, mode) => {
-
       }
     });
   }
-
 
 
 }
