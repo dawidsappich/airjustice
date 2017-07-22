@@ -14,9 +14,10 @@ export class DataCollectionService {
 
   constructor(private _http: Http) { }
 
-  getAirportLookups() {
+  capture(record: any): Observable<any>{
     this.createAuthApiHeaders();
-    return this._http.post(`${this.domain}/dataService/airports`, {}, this.options).map(res => res.json());
+    console.log(record)
+    return this._http.post(`${this.domain}/records/record`, record, this.options).map(res => res.json());
   }
 
   getAirport(query: string): Observable<AirportSearchResult[]> {

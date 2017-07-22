@@ -16,11 +16,15 @@ export class FormSetComponent implements OnInit {
   subscription: Subscription;
   form: FormGroup;
   disabled: boolean;
-  loading = true;
+  processing = false;
+  debug = true;
+
+  message: any;
+  messageClass = '';
+
 
   problemType = {};
   flightType = {}
-  @Input() test: string;
 
   constructor(
     private dcs: DataCollectionService,
@@ -47,8 +51,9 @@ export class FormSetComponent implements OnInit {
       flightType: ['', Validators.compose([
         Validators.required
       ])],
-      flightProblemCase: ['', Validators.required]
+      problemCase: ['', Validators.required]
     })
+    // necessary to activate dropdown feature via sematic ui
     $('#select').dropdown();
     $('#select2').dropdown();
   }
@@ -71,6 +76,47 @@ export class FormSetComponent implements OnInit {
     // https://stackoverflow.com/a/20773488
     const regex = new RegExp(/(^(((0[1-9]|1[0-9]|2[0-8])\.(0[1-9]|1[012]))|((29|30|31)\.(0[13578]|1[02]))|((29|30)\.(0[4,6,9]|11)))\.(19|[2-9][0-9])\d\d$)|(^29\.02\.(19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)/);
     return (regex.test(controls.value)) ? null : { notValidDate: true };
+  }
+
+  processForm() {
+    this.processing = true;
+    this.disableForm();
+
+    const record = {
+      flightNr: this.form.get('flightNr').value,
+      flightDate: this.form.get('flightDate').value,
+      problemCase: this.form.get('problemCase').value,
+      flightType: this.form.get('flightType').value
+    }
+
+    this.dcs.capture(record).subscribe(data => {
+      this.message = data.message;
+      if (!data.success) {
+        this.messageClass = 'error';
+      } else {
+        this.messageClass = 'success';
+        setTimeout(() => {
+          this.processing = false;
+          this.message = '';
+          this.form.reset();
+          this.enableForm();
+        }, 2000);
+      }
+    })
+  }
+
+  disableForm() {
+    this.form.get('flightNr').disable();
+    this.form.get('flightDate').disable();
+    this.form.get('flightType').disable();
+    this.form.get('problemCase').disable();
+  }
+
+  enableForm() {
+    this.form.get('flightNr').enable();
+    this.form.get('flightDate').enable();
+    this.form.get('flightType').enable();
+    this.form.get('problemCase').enable();
   }
 
 }
