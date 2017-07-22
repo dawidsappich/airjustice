@@ -16,7 +16,10 @@ export class FormSetComponent implements OnInit {
   subscription: Subscription;
   form: FormGroup;
   disabled: boolean;
-  debug: true;
+  loading = true;
+
+  problemType = {};
+  flightType = {}
 
   constructor(
     private dcs: DataCollectionService,
@@ -24,24 +27,30 @@ export class FormSetComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.createForm();
-    this.toggle();
+    this.loadFormFieldDescription();
+    this.initForms();
   }
 
   getAirportLookups() {
-    this.subscription = this.dcs.getAirportLookups().subscribe(data => this.airports = data.message);
+    this.subscription = this.dcs.getAirportLookups().subscribe(payload => this.airports = payload.message);
   }
 
-  toggle() {
-    $('#select').dropdown();
-    $('#select2').dropdown();
-  }
-
-  createForm() {
+  initForms() {
     this.form = this.fb.group({
       flightNr: ['', Validators.required],
       flightType: ['', Validators.required],
       flightProblemCase: ['', Validators.required]
+    })
+    $('#select').dropdown();
+    $('#select2').dropdown();
+  }
+
+  loadFormFieldDescription() {
+    this.dcs.getFormFieldDescription('problem').subscribe(payload => {
+      this.problemType = payload;
+    })
+    this.dcs.getFormFieldDescription('flightType').subscribe(payload => {
+      this.flightType = payload;
     })
   }
 

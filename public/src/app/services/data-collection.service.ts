@@ -19,9 +19,14 @@ export class DataCollectionService {
     return this._http.post(`${this.domain}/dataService/airports`, {}, this.options).map(res => res.json());
   }
 
-  getAirport(query: string): Observable<AirportSearchResult[]>{
+  getAirport(query: string): Observable<AirportSearchResult[]> {
     this.createAuthApiHeaders();
     return this._http.get(`${this.domain}/dataService/airport/${query.toUpperCase()}`, this.options).map(res => res.json().message);
+  }
+
+  getFormFieldDescription(field: string): Observable<any> {
+    this.createAuthApiHeaders();
+    return this._http.get(`${this.domain}/dataService/forms/${field}`, this.options).map(res => res.json().message);
   }
 
   private createAuthApiHeaders() {

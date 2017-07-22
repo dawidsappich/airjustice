@@ -23,24 +23,22 @@
       <div class="fields">
         <div class="field">
           <label>Flugart</label>
-          <select (click)="toggle()" formControlName="flightType" class="ui dropdown" id="select">
+          <select formControlName="flightType" class="ui dropdown" id="select">
             <option value="">Flugart</option>
-            <option value="male">Direktflug</option>
-            <option value="female">Flug mit Umstieg</option>
+            <option *ngFor="let item of flightType.values" value="{{item.value}}">{{item.display}}</option>
           </select>
         </div>
 
         <div class="field">
           <label>Problem</label>
-          <select (click)="toggle()" formControlName="flightProblemCase" class="ui dropdown" id="select2">
+          <select formControlName="flightProblemCase" class="ui dropdown" id="select2">
             <option value="">Problem</option>
-            <option value="male">Technischer Defekt</option>
-            <option value="female">Streik</option>
+            <option *ngFor="let item of problemType.values" value="{{item.value}}">{{item.display}}</option>
           </select>
         </div>
       </div>
 
-      <button [class.disabled]="!form.valid" (click)="show()" class="ui button primary" type="text">Weiter</button>
+      <button [class.disabled]="!form.valid" class="ui button primary" type="text">Weiter</button>
 
     </form>
   </div>
@@ -57,7 +55,5 @@
       </app-search-flight>
     </div>
   </div>
-
-
 
 </div>
