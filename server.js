@@ -9,6 +9,8 @@ const cors = require('cors');// ONLY FOR DEVELOPMENT
 const PORT = 5000;
 const PORT_DEV = 4200;
 const dataServiceRoute = require('./routes/dataService')(router);
+const records = require('./routes/records')(router);
+
 
 // ONLY FOR DEVELOPMENT
 // allow CORS
@@ -20,7 +22,9 @@ console.warn(`!!!!!! CORS is allowed for localhost:${PORT_DEV} REMOVE before dep
 // middleware for parsing incoming requests
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
+// handle routes with this router-configurations
 app.use('/dataService', dataServiceRoute);
+app.use('/records', records);
 
 
 

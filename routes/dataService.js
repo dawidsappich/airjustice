@@ -30,20 +30,6 @@ module.exports = (router) => {
 	 */
 
 	/**
-	 * Return all airports
-	 */
-	router.post('/airports', (req, res) => {
-		// get all airports
-		Lookup.find((err, airports) => {
-			if (err) {
-				res.json({ success: false, message: err });
-			} else {
-				res.json({ success: true, message: airports });
-			}
-		})
-	});
-
-	/**
 	 * Return one airport from mongodb
 	 */
 	router.get('/airport/:query', (req, res) => {
