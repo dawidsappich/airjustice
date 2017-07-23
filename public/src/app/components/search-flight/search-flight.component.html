@@ -1,17 +1,14 @@
+<form [formGroup]="form" class="ui form" novalidate>
 
-  <form [formGroup]="form" class="ui form" novalidate>
-
-    <div class="field">
-      <ng-content></ng-content>
-      <input (keyup)="search($event.target.value)" formControlName="airport" placeholder="Flughafen">
-    </div>
-
-  </form>
-
-  <div class="column">
-    <div class="ui animated selection list">
-      <div *ngFor="let entry of results | async" class="item">
-        <div (click)="addValue(entry.value)" class="header">{{ entry.value }}</div>{{ entry.code }}
-      </div>
-    </div>
+  <div class="field">
+    <ng-content></ng-content>
+    <input (keyup)="search($event.target.value)" formControlName="airport" placeholder="Flughafen">
   </div>
+
+</form>
+
+<div class="ui animated selection list">
+  <div *ngFor="let entry of results | async" class="item">
+    <div (click)="addValue(entry.value)" class="header">{{ entry.value }}</div>{{ entry.code }}
+  </div>
+</div>

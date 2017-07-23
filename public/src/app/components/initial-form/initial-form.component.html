@@ -43,16 +43,7 @@
     <button [class.disabled]="!form.valid" class="ui button primary" type="text">Weiter</button>
   </form>
 
-  <pre *ngIf="debug">
-      flightNr dirty: {{form.controls.flightNr.dirty}}
-      flightNr valid: {{form.controls.flightNr.valid}}
-      flightDate dirty: {{form.controls.flightDate.dirty}}
-      flightDate valid: {{form.controls.flightDate.valid}}
-      flightType dirty: {{form.controls.flightType.dirty}}
-      flightType valid: {{form.controls.flightType.valid}}
-      problemCase dirty: {{form.controls.problemCase?.dirty}}
-      problemCase valid: {{form.controls.problemCase?.valid}}
-    </pre>
+  <h2 class="ui dividing header">Nennen Sie uns den Start und Zielflughafen</h2>
 
   <app-search-flight>
     <label>Start</label>
@@ -61,6 +52,21 @@
   <app-search-flight>
     <label>Ziel</label>
   </app-search-flight>
+
+
+
+
+
+  <pre *ngIf="debug">
+    flightNr dirty: {{form.controls.flightNr.dirty}}
+    flightNr valid: {{form.controls.flightNr.valid}}
+    flightDate dirty: {{form.controls.flightDate.dirty}}
+    flightDate valid: {{form.controls.flightDate.valid}}
+    flightType dirty: {{form.controls.flightType.dirty}}
+    flightType valid: {{form.controls.flightType.valid}}
+    problemCase dirty: {{form.controls.problemCase?.dirty}}
+    problemCase valid: {{form.controls.problemCase?.valid}}
+  </pre>
 
   <div *ngIf="message" [ngClass]="messageClass" class="ui message">
     <i class="close icon"></i>
