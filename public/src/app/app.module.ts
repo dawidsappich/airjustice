@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './routing/app-rounting.module';
 
 import { AppComponent } from './app.component';
-import { FormSetComponent } from './components/form-set/form-set.component';
+import { InitialFormComponent } from './components/initial-form/initial-form.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { FormsComponent } from './components/forms/forms.component';
@@ -16,7 +16,7 @@ import { DatePickerComponent } from './components/date-picker/date-picker.compon
 @NgModule({
   declarations: [
     AppComponent,
-    FormSetComponent,
+    InitialFormComponent,
     NavbarComponent,
     HomeComponent,
     FormsComponent,
@@ -32,4 +32,5 @@ import { DatePickerComponent } from './components/date-picker/date-picker.compon
   providers: [DataCollectionService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

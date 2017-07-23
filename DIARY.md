@@ -17,6 +17,13 @@
 + Auswahllisten für Feld Problem und Flugart in DB ausgelagert bzw. in der DB angelegt als collection _forms_
 + Refactoring der Listen, so dass diese aus der DB geladen werden
 + Probleme mit 3rd party callback beim Datepicker, Wert wird vom formCotrol nicht erkannt. ChangeDetection?
-+ Date-pciker erst einmal auskommetiert, einfaches Inputfeld mit Validierung realisiert um weiter zu kommen - _ -
++ Date-pciker erst einmal auskommetiert, einfaches Inputfeld mit Validierung realisiert um weiter zu kommen *ernüchternd*
 + Validerung des Formulars
 + Speichern der Einagben aus dem ersten Formular in der Datenbank d.h. Backend route eingericht und frontend eingerichtet. Für Testzwecke wird das Formular nach zwei Sekunden wieder zurückegesetzt. In der finalen app wird der nächste Schritt als Formular geladen
+
+## Sonntag 23.07.2017
+
++ Refactoring form-set wird zu inital-form
++ Zum entschluss gekommen, dass es keine Sinn macht nur für den API_KEY und die DOMAIN einen Service zu implenetieren
++ Recherche zum Thema Angular Porzessstueerung Ergebnis: Busniess Logic am besten als Service modelieren, der anhand von Models alles im Girff hat. Folge: Komponenten müssen von Service(s) zur Laufzeit geladen und intasziiert werden
++ Die Landingpage ein wenig gestalten
