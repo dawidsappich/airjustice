@@ -5,13 +5,13 @@
   <form [formGroup]="form" (ngSubmit)="processForm()" class="ui equal width form" novalidate>
 
     <div class="fields">
-      <div [ngClass]="{'error': (form.controls.flightNr.dirty && ( notValidFlightNumber || form.controls.flightNr.errors )), 'success': (!form.controls.flightNr.errors && !notValidFlightNumber) && form.controls.flightNr.dirty, 'disabled': processing}"
+      <div [ngClass]="{'error': (form.controls.flightNr.dirty && ( form.controls.flightNr.errors?.notValidFlightNumber || form.controls.flightNr.errors )), 'success': (!form.controls.flightNr.errors && !form.controls.flightNr.errors?.notValidFlightNumber) && form.controls.flightNr.dirty, 'disabled': processing}"
         class="required field">
         <label>Flugnummer</label>
         <input formControlName="flightNr" placeholder="Flugnummer">
       </div>
 
-      <div [ngClass]="{'error': (form.controls.flightDate.dirty && ( notValidDate || form.controls.flightDate.errors )), 'success': (!form.controls.flightDate.errors && !notValidDate) && form.controls.flightDate.dirty ,'disabled': processing}"
+      <div [ngClass]="{'error': (form.controls.flightDate.dirty && ( form.controls.flightDate.errors?.notValidDate || form.controls.flightDate.errors )), 'success': (!form.controls.flightDate.errors && !form.controls.flightDate.errors?.notValidDate) && form.controls.flightDate.dirty ,'disabled': processing}"
         class="required field">
         <label>Flugdatum</label>
         <!-- <app-date-picker (er)="test" ></app-date-picker> -->
@@ -26,7 +26,7 @@
         <label>{{ flightType.display }}</label>
         <select formControlName="flightType" class="ui dropdown" id="select">
             <option value="">Flugart</option>
-            <option *ngFor="let item of flightType.values" value="{{item.value}}">{{item.display}}</option>
+            <option *ngFor="let item of flightType.values" value="{{item?.value}}">{{item.display}}</option>
           </select>
       </div>
 

@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map';
 export class DataCollectionService {
 
   private domain: string = 'http://localhost:5000';
-  private API_KEY = 'ZOEDU314YpfPSkw_dMXG0vr3AW-TjN1PF7XE-RXG'; // TODO: Create injectable ConfigService
+  private API_KEY = 'ZOEDU314YpfPSkw_dMXG0vr3AW-TjN1PF7XE-RXG';
   options: RequestOptions;
 
   constructor(private _http: Http) { }

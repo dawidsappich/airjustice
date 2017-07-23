@@ -3,6 +3,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+
+
 declare var $: any;
 
 @Component({
@@ -19,12 +21,24 @@ export class InitialFormComponent implements OnInit {
   processing = false;
   debug = false;
 
+  dummy = {
+    type: '',
+    list: '',
+    display: '',
+    values: [{
+      display: '',
+      value: '',
+      order: 0,
+      icon: ''
+    }]
+  }
+
   message: any;
   messageClass = '';
 
 
-  problemType = {};
-  flightType = {}
+  problemType = this.dummy;
+  flightType = this.dummy;
 
   constructor(
     private dcs: DataCollectionService,
@@ -32,6 +46,7 @@ export class InitialFormComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
     this.loadFormFieldDescription();
     this.initForms();
   }
