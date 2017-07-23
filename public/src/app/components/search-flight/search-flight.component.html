@@ -1,5 +1,5 @@
-<div class="ui container">
-  <form [formGroup]="form" class="ui small form" novalidate>
+
+  <form [formGroup]="form" class="ui form" novalidate>
 
     <div class="field">
       <ng-content></ng-content>
@@ -9,12 +9,9 @@
   </form>
 
   <div class="column">
-    <div class="ui middle aligned selection animated list">
+    <div class="ui animated selection list">
       <div *ngFor="let entry of results | async" class="item">
         <div (click)="addValue(entry.value)" class="header">{{ entry.value }}</div>{{ entry.code }}
       </div>
     </div>
   </div>
-
-
-</div>

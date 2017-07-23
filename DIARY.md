@@ -26,4 +26,4 @@
 + Refactoring form-set wird zu inital-form
 + Zum entschluss gekommen, dass es keine Sinn macht nur für den API_KEY und die DOMAIN einen Service zu implenetieren
 + Recherche zum Thema Angular Porzessstueerung Ergebnis: Busniess Logic am besten als Service modelieren, der anhand von Models alles im Girff hat. Folge: Komponenten müssen von Service(s) zur Laufzeit geladen und intasziiert werden
-+ Die Landingpage ein wenig gestalten
++ Die Landingpage ein wenig gestalten. Die navbar resposive machen

@@ -1,52 +1,49 @@
-<div class="ui grid centered container first">
+<div class="ui text container first">
 
-  <div class="twelve wide centerd column">
+  <h2 class="ui dividing header">Allgemeine Informationen</h2>
 
-    <h2 class="ui header">Allgemeine Informationen</h2>
-    <div class="ui divider"></div>
+  <form [formGroup]="form" (ngSubmit)="processForm()" class="ui equal width form" novalidate>
 
-    <form [formGroup]="form" (ngSubmit)="processForm()" class="ui equal width small form" novalidate>
-
-      <div class="fields">
-        <div [ngClass]="{'error': (form.controls.flightNr.dirty && ( notValidFlightNumber || form.controls.flightNr.errors )), 'success': (!form.controls.flightNr.errors && !notValidFlightNumber) && form.controls.flightNr.dirty, 'disabled': processing}"
-          class="required field">
-          <label>Flugnummer</label>
-          <input formControlName="flightNr" placeholder="Flugnummer">
-        </div>
-
-        <div [ngClass]="{'error': (form.controls.flightDate.dirty && ( notValidDate || form.controls.flightDate.errors )), 'success': (!form.controls.flightDate.errors && !notValidDate) && form.controls.flightDate.dirty ,'disabled': processing}"
-          class="required field">
-          <label>Flugdatum</label>
-          <!-- <app-date-picker (er)="test" ></app-date-picker> -->
-          <input formControlName="flightDate" placeholder="dd.mm.yyyy">
-        </div>
-
+    <div class="fields">
+      <div [ngClass]="{'error': (form.controls.flightNr.dirty && ( notValidFlightNumber || form.controls.flightNr.errors )), 'success': (!form.controls.flightNr.errors && !notValidFlightNumber) && form.controls.flightNr.dirty, 'disabled': processing}"
+        class="required field">
+        <label>Flugnummer</label>
+        <input formControlName="flightNr" placeholder="Flugnummer">
       </div>
 
-      <div class="fields">
-        <div [ngClass]="{'error': (form.controls.flightType.dirty && !form.controls.flightType?.valid && !processing), 'disabled': processing}"
-          class="required field">
-          <label>{{ flightType.display }}</label>
-          <select formControlName="flightType" class="ui dropdown" id="select">
+      <div [ngClass]="{'error': (form.controls.flightDate.dirty && ( notValidDate || form.controls.flightDate.errors )), 'success': (!form.controls.flightDate.errors && !notValidDate) && form.controls.flightDate.dirty ,'disabled': processing}"
+        class="required field">
+        <label>Flugdatum</label>
+        <!-- <app-date-picker (er)="test" ></app-date-picker> -->
+        <input formControlName="flightDate" placeholder="dd.mm.yyyy">
+      </div>
+
+    </div>
+
+    <div class="fields">
+      <div [ngClass]="{'error': (form.controls.flightType.dirty && !form.controls.flightType?.valid && !processing), 'disabled': processing}"
+        class="required field">
+        <label>{{ flightType.display }}</label>
+        <select formControlName="flightType" class="ui dropdown" id="select">
             <option value="">Flugart</option>
             <option *ngFor="let item of flightType.values" value="{{item.value}}">{{item.display}}</option>
           </select>
-        </div>
+      </div>
 
-        <div [ngClass]="{'error': (form.controls.problemCase.dirty && !form.controls.problemCase?.valid && !processing), 'disabled': processing}"
-          class="required field">
-          <label>{{ problemType.display }}</label>
-          <select formControlName="problemCase" class="ui dropdown" id="select2">
+      <div [ngClass]="{'error': (form.controls.problemCase.dirty && !form.controls.problemCase?.valid && !processing), 'disabled': processing}"
+        class="required field">
+        <label>{{ problemType.display }}</label>
+        <select formControlName="problemCase" class="ui dropdown" id="select2">
             <option value="">Problem</option>
             <option *ngFor="let item of problemType.values" value="{{item.value}}">{{item.display}}</option>
           </select>
-        </div>
       </div>
+    </div>
 
-      <button [class.disabled]="!form.valid" class="ui button primary" type="text">Weiter</button>
-    </form>
+    <button [class.disabled]="!form.valid" class="ui button primary" type="text">Weiter</button>
+  </form>
 
-    <pre *ngIf="debug">
+  <pre *ngIf="debug">
       flightNr dirty: {{form.controls.flightNr.dirty}}
       flightNr valid: {{form.controls.flightNr.valid}}
       flightDate dirty: {{form.controls.flightDate.dirty}}
@@ -57,30 +54,20 @@
       problemCase valid: {{form.controls.problemCase?.valid}}
     </pre>
 
-  </div>
+  <app-search-flight>
+    <label>Start</label>
+  </app-search-flight>
 
+  <app-search-flight>
+    <label>Ziel</label>
+  </app-search-flight>
 
-
-  <div class="row">
-    <div class="six wide column">
-      <app-search-flight>
-        <label>Start</label>
-      </app-search-flight>
-    </div>
-    <div class="six wide column">
-      <app-search-flight>
-        <label>Ziel</label>
-      </app-search-flight>
-    </div>
-  </div>
-
-</div>
-
-<div class="ui container">
   <div *ngIf="message" [ngClass]="messageClass" class="ui message">
     <i class="close icon"></i>
     <div class="header">
       {{message}}
     </div>
   </div>
+
+
 </div>

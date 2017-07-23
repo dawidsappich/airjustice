@@ -16,7 +16,6 @@ export class DataCollectionService {
 
   capture(record: any): Observable<any>{
     this.createAuthApiHeaders();
-    console.log(record)
     return this._http.post(`${this.domain}/records/record`, record, this.options).map(res => res.json());
   }
 
