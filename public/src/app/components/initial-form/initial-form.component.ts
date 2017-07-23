@@ -6,11 +6,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 declare var $: any;
 
 @Component({
-  selector: 'app-form-set',
-  templateUrl: './form-set.component.html',
-  styleUrls: ['./form-set.component.css']
+  selector: 'initial-form',
+  templateUrl: './initial-form.component.html',
+  styleUrls: ['./initial-form.component.css']
 })
-export class FormSetComponent implements OnInit {
+export class InitialFormComponent implements OnInit {
 
   airports: any;
   subscription: Subscription;
