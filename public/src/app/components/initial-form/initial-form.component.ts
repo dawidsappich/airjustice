@@ -84,7 +84,7 @@ export class InitialFormComponent implements OnInit {
 
     const record = {
       flightNr: this.form.get('flightNr').value,
-      flightDate: this.form.get('flightDate').value,
+      flightDate: new Date(this.form.get('flightDate').value),
       problemCase: this.form.get('problemCase').value,
       flightType: this.form.get('flightType').value
     }
