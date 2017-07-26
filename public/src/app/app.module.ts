@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { InitialFormComponent } from './components/initial-form/initial-form.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
-import { FormsComponent } from './components/forms/forms.component';
+import { FormContainerComponent } from './components/form-container/form-container.component';
 import { SearchFlightComponent } from './components/search-flight/search-flight.component';
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
 
@@ -19,7 +19,7 @@ import { DatePickerComponent } from './components/date-picker/date-picker.compon
     InitialFormComponent,
     NavbarComponent,
     HomeComponent,
-    FormsComponent,
+    FormContainerComponent,
     SearchFlightComponent,
     DatePickerComponent
   ],

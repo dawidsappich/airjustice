@@ -1,4 +1,4 @@
-import { FormsComponent } from './../components/forms/forms.component';
+import { FormContainerComponent } from './../components/form-container/form-container.component';
 import { HomeComponent } from './../components/home/home.component';
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
@@ -10,7 +10,7 @@ const routes: Routes = [
 	},
 	{
 		path: 'forms',
-		component: FormsComponent
+		component: FormContainerComponent
 	},
 	{
 		path: '**',

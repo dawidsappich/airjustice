@@ -27,3 +27,11 @@
 + Zum entschluss gekommen, dass es keine Sinn macht nur für den API_KEY und die DOMAIN einen Service zu implenetieren
 + Recherche zum Thema Angular Porzessstueerung Ergebnis: Busniess Logic am besten als Service modelieren, der anhand von Models alles im Girff hat. Folge: Komponenten müssen von Service(s) zur Laufzeit geladen und intasziiert werden
 + Die Landingpage ein wenig gestalten. Die navbar resposive machen
+
+## Dienstag 25.07.2017
+
++ In den letzten beiden tagen mit dem Buch 'Pro Angular' beschäftigt um eine Konzept zum Laden der Formular Komponenten zu entwickeln. Es läuft daraus hinaus dass ich eine Directive implenetieren muss
+
+## Mittwoch 26.07.2017
+
++ Weiter in das Thema ViewContainerRef und TemplateRef bei Angular einarbeiten. Prototype gebaut um zu schauen wie das dynamische Laden von Komponenten funktioniert. Prototyp funktioniert. Konzept entiwckelt: _FormContainer_ dient als Container für das Rendering der Formularkomponenten. Forumularkompnenten werden injiziert von _FormLoaderService_. Der Staus wird im _FormStateModel_ festgehalten.Im Model werden die Schritte mit Enumerationen abgebildet z.B. der erste Schritt ist FormStep.INITIAL. Der _FormState_ hält immer den _currentState_ und den _previousState_ fest. Ein _FormSate_ wird an den _FormLaoderService_ geschickt, un der liefert die nächste FormKomponente an den FormContainer
