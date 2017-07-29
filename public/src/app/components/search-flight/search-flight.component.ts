@@ -20,6 +20,7 @@ import { DataCollectionService } from './../../services/data-collection.service'
 })
 export class SearchFlightComponent implements OnInit {
 
+  processing = false;
   form: FormGroup;
   results: Observable<any[]>;
   private searchTerms: Subject<string>;

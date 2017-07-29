@@ -1,11 +1,11 @@
 <form [formGroup]="form" class="ui equal width form" novalidate>
 
   <div class="fields">
-    <div class="required field">
+    <div [ngClass]="{'disabled':processing}" class="required field">
       <ng-content select=".label"></ng-content>
       <input (keyup)="search($event.target.value)" formControlName="airport" placeholder="Flughafen">
     </div>
-    <div class="required field">
+    <div [ngClass]="{'disabled':processing}" class="required field">
       <ng-content select=".prupose"></ng-content>
       <input (keyup)="onChange()" formControlName="time" placeholder="Zeit">
     </div>
