@@ -7,7 +7,7 @@ export class FormResponse {
 	isComplete: boolean;
 	results: any;
 
-	constructor(step: FormStep, results?: any, isValid = true, isComplete = true) {
+	constructor(step: FormStep, results = {}, isValid = true, isComplete = true) {
 		this.origin = step;
 		this.isValid = isValid;
 		this.isComplete = isComplete;

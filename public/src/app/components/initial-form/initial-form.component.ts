@@ -114,7 +114,7 @@ export class InitialFormComponent implements OnInit, IFormResponse {
         this.messageClass = 'error';
       } else {
         this.messageClass = 'success';
-        this.response.emit(new FormResponse(FormStep.INITIAL)); //emit value to parent form-container
+        this.response.emit(new FormResponse(FormStep.INITIAL, record)); //emit value to parent form-container
       }
     })
   }

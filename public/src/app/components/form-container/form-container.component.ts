@@ -21,7 +21,7 @@ export class FormContainerComponent implements OnInit {
   constructor(private resolver: ComponentFactoryResolver, private container: ViewContainerRef) {
     this.state = new FormState();
     this.subscriptions = new Map<FormStep, Subscription>();
-    this.response = new FormResponse(FormStep.ROOT, false, false);
+    this.response = new FormResponse(FormStep.ROOT);
   }
 
   ngOnInit() {
@@ -42,7 +42,9 @@ export class FormContainerComponent implements OnInit {
   checkFormResponse() {
     if (this.response.isValid) {
       const form = this.state.getnextForm(this.response);
-      this.renderForm(form);
+      if (form) {
+        this.renderForm(form);
+      }
     }
   }
 
