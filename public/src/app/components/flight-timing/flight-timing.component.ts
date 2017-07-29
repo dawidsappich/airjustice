@@ -35,7 +35,10 @@ export class FlightTimingComponent implements OnInit, IFormResponse {
   process() {
     if (this.isChecked) {
       this.isChecked = false; // to disable button
-      this.searchfields.forEach(item => item.disableForm()); // disable searchfields
+      this.searchfields.forEach(item => {
+        item.processing = true;
+        item.disableForm();
+      }); // disable searchfields
       // this.response.emit(new FormResponse(FormStep.TIMING)); // tell parent component that form ist ok
     }
   }

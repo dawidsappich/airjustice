@@ -29,9 +29,13 @@ export class FormState {
 
 	getnextForm(response: FormResponse) {
 		if (response.origin === FormStep.INITIAL) {
-			this.currentStep = FormStep.TIMING;
-			// TODO: check deatils form formResponse
-			return this.forms.get(this.getCurrentStep());
+			if (response.results && response.results.flightType === 'directFlight') {
+				this.currentStep = FormStep.TIMING;
+				return this.forms.get(this.getCurrentStep());
+			}
+			if (response.results && response.results.flightType === 'indirectFlight') {
+				console.log('TODO: Load Form with multiple flights');
+			}
 		}
 
 		if (response.origin === FormStep.TIMING) {
