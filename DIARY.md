@@ -35,3 +35,7 @@
 ## Mittwoch 26.07.2017
 
 + Weiter in das Thema ViewContainerRef und TemplateRef bei Angular einarbeiten. Prototype gebaut um zu schauen wie das dynamische Laden von Komponenten funktioniert. Prototyp funktioniert. Konzept entiwckelt: _FormContainer_ dient als Container für das Rendering der Formularkomponenten. Forumularkompnenten werden injiziert von _FormLoaderService_. Der Staus wird im _FormStateModel_ festgehalten.Im Model werden die Schritte mit Enumerationen abgebildet z.B. der erste Schritt ist FormStep.INITIAL. Der _FormState_ hält immer den _currentState_ und den _previousState_ fest. Ein _FormSate_ wird an den _FormLaoderService_ geschickt, un der liefert die nächste FormKomponente an den FormContainer
+
+## Samstag 29.07.2017
+
++ Das dynamische Laden von Formbestandteilen funktioniert jetzt. Habe es so generisch wie möglcih gehalten. Alle Formkompnenten impoentieren ein Inteface, das als API zwischen Formconatiner und den Kindkomponenten dient. Nach jedem _FormStep_ werden die Eingaben evaluiert, das Model _FormState_ bestimmt den nächsten Schritt, und gibt dem _FormContainer_ die Form zurück, die gerendert werden soll. Funktioniert gut, so dass ich mich jetzt auf die einzelnen Komponenten konzentierein kann :)

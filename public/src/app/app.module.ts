@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FormContainerComponent } from './components/form-container/form-container.component';
 import { SearchFlightComponent } from './components/search-flight/search-flight.component';
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
+import { FlightTimingComponent } from './components/flight-timing/flight-timing.component';
 
 @NgModule({
   declarations: [
@@ -21,9 +22,10 @@ import { DatePickerComponent } from './components/date-picker/date-picker.compon
     HomeComponent,
     FormContainerComponent,
     SearchFlightComponent,
-    DatePickerComponent
+    DatePickerComponent,
+    FlightTimingComponent
   ],
-  entryComponents: [InitialFormComponent, SearchFlightComponent],
+  entryComponents: [InitialFormComponent, FlightTimingComponent],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
