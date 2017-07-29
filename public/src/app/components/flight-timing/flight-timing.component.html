@@ -1,0 +1,17 @@
+<div class="ui text container first">
+  <h2 class="ui dividing header">Details zum Flug</h2>
+
+  <!--Content Projection for labels in child Component -->
+  <search-flight (selected)="doCheck()">
+    <label class="label">Start</label>
+    <label class="prupose">Abflug</label>
+  </search-flight>
+
+  <search-flight (selected)="doCheck()">
+    <label class="label">Ziel</label>
+    <label class="prupose">Ankunft</label>
+  </search-flight>
+
+  <button [class.disabled]="!isChecked" (click)="process()" class="ui primary button" type="text">Weiter</button>
+
+</div>
