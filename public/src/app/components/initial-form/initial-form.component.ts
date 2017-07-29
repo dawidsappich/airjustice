@@ -1,9 +1,11 @@
+import { FormResponse } from './../../models/form-response.model';
+import { FormStep } from './../../models/form-step.model';
+
+import { IFormResponse } from './../../models/form-response.interface';
 import { DataCollectionService } from './../../services/data-collection.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-
 
 declare var $: any;
 
@@ -12,7 +14,9 @@ declare var $: any;
   templateUrl: './initial-form.component.html',
   styleUrls: ['./initial-form.component.css']
 })
-export class InitialFormComponent implements OnInit {
+export class InitialFormComponent implements OnInit, IFormResponse {
+
+  @Output() response: EventEmitter<FormResponse> = new EventEmitter<FormResponse>();
 
   airports: any;
   subscription: Subscription;
@@ -110,6 +114,7 @@ export class InitialFormComponent implements OnInit {
         this.messageClass = 'error';
       } else {
         this.messageClass = 'success';
+        this.response.emit(new FormResponse(FormStep.INITIAL, true, true)); //emit value to parent form-container
         // info: setTimeout is only fpr developement
         setTimeout(() => {
           this.processing = false;
