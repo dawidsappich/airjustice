@@ -5,10 +5,12 @@ export class FormResponse {
 	origin: FormStep;
 	isValid: boolean;
 	isComplete: boolean;
+	results: any;
 
-	constructor(step: FormStep, isValid: boolean, isComplete) {
+	constructor(step: FormStep, results?: any, isValid = true, isComplete = true) {
 		this.origin = step;
 		this.isValid = isValid;
 		this.isComplete = isComplete;
+		this.results = results;
 	}
 }
