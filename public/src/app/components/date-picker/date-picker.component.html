@@ -1,6 +1,9 @@
-<div class="ui calendar" id="datepicker">
-  <div class="ui input left icon">
-    <i class="calendar icon"></i>
-    <input [formControl]="flightDate" placeholder="Abflugdatum">
+<div class="required field">
+  <label>Zeit</label>
+  <div class="ui calendar" id="{{idSelector}}">
+    <div class="ui input left icon">
+      <i class="calendar icon"></i>
+      <input [formControl]="flightDate" placeholder="Zeit">
+    </div>
   </div>
 </div>
