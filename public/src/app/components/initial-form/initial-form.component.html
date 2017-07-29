@@ -2,7 +2,7 @@
 
   <h2 class="ui dividing header">Allgemeine Informationen</h2>
 
-  <form [formGroup]="form" (ngSubmit)="processForm()" class="ui equal width form" novalidate>
+  <form [formGroup]="form" (ngSubmit)="process()" class="ui equal width form" novalidate>
 
     <div class="fields">
       <div [ngClass]="{'error': (form.controls.flightNr.dirty && ( form.controls.flightNr.errors?.notValidFlightNumber || form.controls.flightNr.errors )), 'success': (!form.controls.flightNr.errors && !form.controls.flightNr.errors?.notValidFlightNumber) && form.controls.flightNr.dirty, 'disabled': processing}"
@@ -43,20 +43,6 @@
     <button [class.disabled]="!form.valid" class="ui button primary" type="text">Weiter</button>
   </form>
 
-  <!-- <h2 class="ui dividing header">Nennen Sie uns den Start und Zielflughafen</h2> -->
-
-  <!-- <app-search-flight>
-    <label>Start</label>
-  </app-search-flight>
-
-  <app-search-flight>
-    <label>Ziel</label>
-  </app-search-flight> -->
-
-
-
-
-
   <pre *ngIf="debug">
     flightNr dirty: {{form.controls.flightNr.dirty}}
     flightNr valid: {{form.controls.flightNr.valid}}
@@ -68,7 +54,7 @@
     problemCase valid: {{form.controls.problemCase?.valid}}
   </pre>
 
-  <div *ngIf="message" [ngClass]="messageClass" class="ui message">
+  <div *ngIf="message && debug" [ngClass]="messageClass" class="ui message">
     <i class="close icon"></i>
     <div class="header">
       {{message}}

@@ -97,7 +97,7 @@ export class InitialFormComponent implements OnInit, IFormResponse {
     return (regex.test(controls.value)) ? null : { notValidDate: true };
   }
 
-  processForm() {
+  process() {
     this.processing = true;
     this.disableForm();
 
@@ -112,17 +112,9 @@ export class InitialFormComponent implements OnInit, IFormResponse {
       this.message = data.message;
       if (!data.success) {
         this.messageClass = 'error';
-        this.response.emit(new FormResponse(FormStep.INITIAL, false, true)); //emit value to parent form-container
       } else {
         this.messageClass = 'success';
-        this.response.emit(new FormResponse(FormStep.INITIAL, true, true)); //emit value to parent form-container
-        // info: setTimeout is only fpr developement
-        setTimeout(() => {
-          this.processing = false;
-          this.message = '';
-          this.form.reset();
-          this.enableForm();
-        }, 2000);
+        this.response.emit(new FormResponse(FormStep.INITIAL)); //emit value to parent form-container
       }
     })
   }
