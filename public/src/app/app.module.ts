@@ -23,6 +23,7 @@ import { DatePickerComponent } from './components/date-picker/date-picker.compon
     SearchFlightComponent,
     DatePickerComponent
   ],
+  entryComponents: [InitialFormComponent],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
