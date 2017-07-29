@@ -1,11 +1,18 @@
-<form [formGroup]="form" class="ui form" novalidate>
+<form [formGroup]="form" class="ui equal width form" novalidate>
 
-  <div class="field">
-    <ng-content></ng-content>
-    <input (keyup)="search($event.target.value)" formControlName="airport" placeholder="Flughafen">
+  <div class="fields">
+    <div class="required field">
+      <ng-content select=".label"></ng-content>
+      <input (keyup)="search($event.target.value)" formControlName="airport" placeholder="Flughafen">
+    </div>
+    <div class="required field">
+      <ng-content select=".prupose"></ng-content>
+      <input (keyup)="onChange()" formControlName="time" placeholder="Zeit">
+    </div>
   </div>
 
 </form>
+
 
 <div class="ui animated selection list">
   <div *ngFor="let entry of results | async" class="item">

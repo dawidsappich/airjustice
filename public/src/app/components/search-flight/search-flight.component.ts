@@ -5,18 +5,16 @@ import 'rxjs/add/operator/deBounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/switchMap';
-
-
 import 'rxjs/add/observable/of'
 
 import { AirportSearchResult } from './../../models/AirportSearchResult';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { DataCollectionService } from './../../services/data-collection.service';
 
 
 @Component({
-  selector: 'app-search-flight',
+  selector: 'search-flight',
   templateUrl: './search-flight.component.html',
   styleUrls: ['./search-flight.component.css']
 })
@@ -24,8 +22,8 @@ export class SearchFlightComponent implements OnInit {
 
   form: FormGroup;
   results: Observable<any[]>;
-  private searchTerms = new Subject<string>();
-  value: any;
+  private searchTerms: Subject<string>;
+  @Output() selected: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(private fb: FormBuilder, private dcs: DataCollectionService) { }
 
@@ -40,8 +38,10 @@ export class SearchFlightComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.searchTerms = new Subject<string>();
     this.form = this.fb.group({
-      airport: ['', Validators.required]
+      airport: ['', Validators.required],
+      time: ['', Validators.required]
     });
 
     this.results = this.searchTerms
@@ -54,9 +54,26 @@ export class SearchFlightComponent implements OnInit {
       });
   }
 
+  onChange() {
+    this.selected.emit(true);
+  }
+
   addValue(value) {
     this.form.get('airport').setValue(value);
     this.searchTerms.next(''); // reset list by emitting an empty string for the Observable
+    this.selected.emit(true); // signal parent component that something is seleceted
+  }
+
+  disableForm() {
+    this.form.get('airport').disable();
+    this.form.get('time').disable();
+    this.form.disable();
+  }
+
+  ensableForm() {
+    this.form.enable();
+    this.form.get('airport').enable();
+    this.form.get('time').enable();
   }
 
 }
