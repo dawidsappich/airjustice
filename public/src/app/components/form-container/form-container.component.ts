@@ -21,6 +21,7 @@ export class FormContainerComponent implements OnInit {
   constructor(private resolver: ComponentFactoryResolver, private container: ViewContainerRef) {
     this.state = new FormState();
     this.subscriptions = new Map<FormStep, Subscription>();
+    this.response = new FormResponse(FormStep.ROOT, false, false);
   }
 
   ngOnInit() {
@@ -31,8 +32,18 @@ export class FormContainerComponent implements OnInit {
     const componentFactory = this.resolver.resolveComponentFactory(form);
     const ref = this.container.createComponent(componentFactory);
     const instance = <IFormResponse>ref.instance;
-    const subscription = instance.response.subscribe(response => this.response = response);
+    const subscription = instance.response.subscribe(response => {
+      this.response = response;
+      this.checkFormResponse();
+    });
     this.subscriptions.set(this.state.getCurrentStep(), subscription); //collect subscriptions to unssubscribe later
+  }
+
+  checkFormResponse() {
+    if (this.response.isValid) {
+      const form = this.state.getnextForm(this.response);
+      this.renderForm(form);
+    }
   }
 
   unsubscribe() {
