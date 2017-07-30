@@ -22,15 +22,15 @@ export class ChoiceTrackerService {
     return this.choices.entries();
   }
 
-  updateChoice(key, value): { succes: boolean, message?: any } {
-    const entry = this.choices.get(key);
-    if (entry) {
-      this.choices.set(entry, value);
-      return { succes: true };
-    } else {
-      return { succes: false, message: `entry for ${key} not found` };
-    }
-  }
+  // updateChoice(key, value): { succes: boolean, message?: any } {
+  //   const entry = this.choices.get(key);
+  //   if (entry) {
+  //     this.choices.set(entry, value);
+  //     return { succes: true };
+  //   } else {
+  //     return { succes: false, message: `entry for ${key} not found` };
+  //   }
+  // }
 
   reset(): void {
     this.choices.clear();
