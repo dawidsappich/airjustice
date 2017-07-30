@@ -45,11 +45,11 @@ export class SearchFlightComponent implements OnInit {
       date: ['', Validators.required],
       hour: ['', Validators.compose([
         Validators.required,
-        Validators.pattern(/([01]?[0-9]|2[0-3]):[0-5][0-9]/)
+        Validators.pattern(/([01]?[0-9]|2[0-3]):[0-5][0-9]/) // dateformat for 24h
       ])],
       hourReal: ['', Validators.compose([
         Validators.required,
-        Validators.pattern(/([01]?[0-9]|2[0-3]):[0-5][0-9]/)
+        Validators.pattern(/([01]?[0-9]|2[0-3]):[0-5][0-9]/) // dateformat for 24h
       ])]
     });
 
