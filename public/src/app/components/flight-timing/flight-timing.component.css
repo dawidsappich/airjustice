@@ -9,3 +9,9 @@
 .push {
 	margin-top: 2rem;
 }
+
+.aj-delay {
+	margin-top:1.2rem;
+	color:red;
+	font-weight: 900;
+}

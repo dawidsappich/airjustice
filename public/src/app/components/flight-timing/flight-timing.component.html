@@ -1,5 +1,7 @@
 <div class="ui text container first">
-  <h2 class="ui header">Details zum Flug</h2>
+  <h2 class="ui header">Details zum Flug
+    <div class="sub header">Bitte geben Sie für jeden Flug an, wie er tatsächlich verlaufen ist (inkl. tatsächlicher Ankunftszeit bei Verspätung)</div>
+  </h2>
 
   <div class="ui horizontal divider push">Start</div>
 
@@ -19,6 +21,9 @@
     <label class="plannedTime">Geplante Ankunftszeit</label>
     <label class="realTime">Tatsächliche Ankunftszeit </label>
   </search-flight>
+
+  <!--TODO: Disable butteon wenn form is submitted  -->
+  <p [class.hidden]="delay" [class.disabled]="!isChecked" class="aj-delay">{{delay}}</p>
 
   <button [class.disabled]="!isChecked" (click)="process()" class="ui primary button" type="text">Weiter</button>
 

@@ -46,9 +46,9 @@
   + [x] Bezeichner für Formulare definieren und in Model FormStep hinterlegen
   + [x] Im Formular TIMIMG die Ab- und Ankunftszeit als Felder hinzufügen
   + [x] Richtige _ProblemCase_ Werte in DB hinterlegen, damit sie in Formular INITIAL richtig angezeigt werden
-  + [ ] _FormState_ nach INITIAL anpassen, so dass auch _ProblemCase_ bei nächster Formularwahl berücksichtigt wird
-  + [ ] Methode yum berechnen von Delta t in Formular TIMING hinzufügen
+  + [x] _FormState_ nach INITIAL anpassen, so dass auch _ProblemCase_ bei nächster Formularwahl berücksichtigt wird
+  + [x] Methode yum berechnen von Delta t in Formular TIMING hinzufügen
   + [ ] Datenmodell für Matrix der Distanzen der Flughäfen definieren
   + [ ] Daten aus Matrix Distanzen in DB importieren
-  + [ ] Formular NOCLAIMPOSSIBLE definieren
+  + [ ] Formular NOCLAIMPOSSIBLE (ende bei delta t < 3) definieren
   + [ ] FormState bei TIMING so anapssen, dass Delta t berücksichtigt wird
