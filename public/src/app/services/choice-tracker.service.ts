@@ -1,27 +1,28 @@
 import { Injectable } from '@angular/core';
+import { FormStep } from '../models/form-step.model'
 
 @Injectable()
 export class ChoiceTrackerService {
 
-  private choices: Map<string, string>;
+  private choices: Map<FormStep, any>;
 
   constructor() {
-    this.choices = new Map<string, string>();
+    this.choices = new Map<FormStep, any>();
   }
 
-  addChcoice(key: string, value: string): void {
+  addChcoice(key: FormStep, value: any): void {
     this.choices.set(key, value);
   }
 
-  getChoice(key: string): string {
+  getChoice(key: FormStep): any {
     return this.choices.get(key);
   }
 
-  getSummary(): IterableIterator<[string, string]> {
+  getSummary(): IterableIterator<[FormStep, any]> {
     return this.choices.entries();
   }
 
-  updateChoice(key, value): { succes: boolean, message?: string } {
+  updateChoice(key, value): { succes: boolean, message?: any } {
     const entry = this.choices.get(key);
     if (entry) {
       this.choices.set(entry, value);
