@@ -48,7 +48,12 @@
   + [x] Richtige _ProblemCase_ Werte in DB hinterlegen, damit sie in Formular INITIAL richtig angezeigt werden
   + [x] _FormState_ nach INITIAL anpassen, so dass auch _ProblemCase_ bei nächster Formularwahl berücksichtigt wird
   + [x] Methode yum berechnen von Delta t in Formular TIMING hinzufügen
-  + [ ] Datenmodell für Matrix der Distanzen der Flughäfen definieren
-  + [ ] Daten aus Matrix Distanzen in DB importieren
-  + [ ] Formular NOCLAIMPOSSIBLE (ende bei delta t < 3) definieren
-  + [ ] FormState bei TIMING so anapssen, dass Delta t berücksichtigt wird
+  + [x] Datenmodell für Matrix der Distanzen der Flughäfen definieren
+  + [-] (abhängig von Dima bzw, warte auf Daten in Form von JSON) Daten aus Matrix Distanzen in DB importieren
+  + [x] Formular NOCLAIMPOSSIBLE (ende bei delta t < 3) definieren
+  + [x] FormState bei TIMING so anapssen, dass Delta t berücksichtigt wird
+
+
++ Da ich heute viel geschafft habe noch ein paar zusätzliche TODOS
+    + [x] Komponente REASON deifnieren
+    + [x] FormSate so anpassen, dass REASON geladen wir wenn delayedFlight und flightdelayAmout >= 3

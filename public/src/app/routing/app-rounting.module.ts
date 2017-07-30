@@ -1,3 +1,4 @@
+import { ReasonComponent } from './../components/reason/reason.component';
 import { FormContainerComponent } from './../components/form-container/form-container.component';
 import { HomeComponent } from './../components/home/home.component';
 import { NgModule } from "@angular/core";
@@ -11,6 +12,10 @@ const routes: Routes = [
 	{
 		path: 'forms',
 		component: FormContainerComponent
+	},
+	{
+		path: 'reason',
+		component:ReasonComponent
 	},
 	{
 		path: '**',

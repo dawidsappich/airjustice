@@ -4,7 +4,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormResponse } from './../../models/form-response.model';
 
 @Component({
-  selector: 'app-noclaim',
+  selector: 'noclaim',
   templateUrl: './noclaim.component.html',
   styleUrls: ['./noclaim.component.css']
 })
