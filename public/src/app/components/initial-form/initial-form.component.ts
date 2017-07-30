@@ -1,3 +1,4 @@
+import { ChoiceTrackerService } from './../../services/choice-tracker.service';
 import { FormResponse } from './../../models/form-response.model';
 import { FormStep } from './../../models/form-step.model';
 
@@ -47,6 +48,7 @@ export class InitialFormComponent implements OnInit, IFormResponse {
   constructor(
     private dcs: DataCollectionService,
     private fb: FormBuilder,
+    private userChoices: ChoiceTrackerService
   ) { }
 
   ngOnInit() {
@@ -107,6 +109,8 @@ export class InitialFormComponent implements OnInit, IFormResponse {
       problemCase: this.form.get('problemCase').value,
       flightType: this.form.get('flightType').value
     }
+
+    this.userChoices.addChcoice(FormStep.INITIAL, record);
 
     this.dcs.capture(record).subscribe(data => {
       this.message = data.message;
