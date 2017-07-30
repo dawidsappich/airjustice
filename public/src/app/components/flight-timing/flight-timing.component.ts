@@ -1,3 +1,4 @@
+import { ChoiceTrackerService } from './../../services/choice-tracker.service';
 import { SearchFlightComponent } from './../search-flight/search-flight.component';
 import { FormResponse } from './../../models/form-response.model';
 import { FormStep } from './../../models/form-step.model';
@@ -17,7 +18,7 @@ export class FlightTimingComponent implements OnInit, IFormResponse {
 
   @ViewChildren(SearchFlightComponent) searchfields: QueryList<SearchFlightComponent>;
 
-  constructor(private container:ViewContainerRef) { }
+  constructor(private container: ViewContainerRef, private userChoices: ChoiceTrackerService) { }
 
   ngOnInit() {
   }
@@ -34,12 +35,24 @@ export class FlightTimingComponent implements OnInit, IFormResponse {
 
   process() {
     if (this.isChecked) {
+      let records = [];
+
       this.isChecked = false; // to disable button
-      this.searchfields.forEach(item => {
+      this.searchfields.forEach(/*SearchFlightComponent*/(item, idx) => {
+        
+        let airport = item.form.controls['airport'].value;
+        let date = item.form.get('date').value;
+        let hour = item.form.get('hour').value;
+        let hourReal = item.form.get('hourReal').value;
+        let record = { idx, airport, date, hour, hourReal };
+        records.push(record)
+
         item.processing = true;
         item.disableForm();
-      }); // disable searchfields
-      // this.response.emit(new FormResponse(FormStep.TIMING)); // tell parent component that form ist ok
+      });
+
+      this.userChoices.addChcoice(FormStep.TIMING, records);
+      this.response.emit(new FormResponse(FormStep.TIMING, records)); // tell parent component that form ist ok
     }
   }
 
