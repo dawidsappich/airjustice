@@ -1,3 +1,4 @@
+import { ChoiceTrackerService } from './../../services/choice-tracker.service';
 import { Subscription } from 'rxjs/Subscription';
 import { FormResponse } from './../../models/form-response.model';
 import { FormStep } from './../../models/form-step.model';
@@ -18,8 +19,8 @@ export class FormContainerComponent implements OnInit {
 
   private state: FormState;
 
-  constructor(private resolver: ComponentFactoryResolver, private container: ViewContainerRef) {
-    this.state = new FormState();
+  constructor(private resolver: ComponentFactoryResolver, private container: ViewContainerRef, private uc: ChoiceTrackerService) {
+    this.state = new FormState(uc);
     this.subscriptions = new Map<FormStep, Subscription>();
     this.response = new FormResponse(FormStep.ROOT);
   }
