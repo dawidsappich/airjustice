@@ -1,3 +1,4 @@
+import { ChoiceTrackerService } from './../services/choice-tracker.service';
 import { InitialFormComponent } from './../components/initial-form/initial-form.component';
 import { FlightTimingComponent } from './../components/flight-timing/flight-timing.component';
 
@@ -10,7 +11,7 @@ export class FormState {
 	private nextStep: FormStep;
 	private forms: Map<FormStep, any>;
 
-	constructor() {
+	constructor(private userChoices: ChoiceTrackerService) {
 		this.init();
 	}
 
@@ -39,8 +40,9 @@ export class FormState {
 		}
 
 		if (response.origin === FormStep.TIMING) {
-			this.currentStep = FormStep.REASON;
-			return this.forms.get(this.getCurrentStep());
+			if (this.userChoices.getChoice(FormStep.INITIAL).problemCase === 'delayedFlight') {
+				console.log('DELAYED FLIGHT');
+			}
 		}
 	}
 
