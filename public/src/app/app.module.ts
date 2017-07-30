@@ -14,6 +14,7 @@ import { FormContainerComponent } from './components/form-container/form-contain
 import { SearchFlightComponent } from './components/search-flight/search-flight.component';
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
 import { FlightTimingComponent } from './components/flight-timing/flight-timing.component';
+import { NoclaimComponent } from './components/noclaim/noclaim.component';
 
 @NgModule({
   declarations: [
@@ -24,9 +25,10 @@ import { FlightTimingComponent } from './components/flight-timing/flight-timing.
     FormContainerComponent,
     SearchFlightComponent,
     DatePickerComponent,
-    FlightTimingComponent
+    FlightTimingComponent,
+    NoclaimComponent
   ],
-  entryComponents: [InitialFormComponent, FlightTimingComponent],
+  entryComponents: [InitialFormComponent, FlightTimingComponent, NoclaimComponent],
   imports: [
     BrowserModule,
     ReactiveFormsModule,

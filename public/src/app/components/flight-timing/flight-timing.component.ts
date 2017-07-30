@@ -14,6 +14,7 @@ export class FlightTimingComponent implements OnInit, IFormResponse {
 
   isChecked = false;
   delay = '';
+  delayTime: number;
   records = [];
 
   @Output() response: EventEmitter<FormResponse> = new EventEmitter<FormResponse>();
@@ -54,7 +55,8 @@ export class FlightTimingComponent implements OnInit, IFormResponse {
         item.processing = true;
         item.disableForm();
       });
-      let delta = this.calculateDeltaTime(this.records);
+      this.calculateDeltaTime(this.records);
+      this.records.push({ flightDelayedAmount: this.delayTime });
       this.userChoices.addChcoice(FormStep.TIMING, this.records);
       this.response.emit(new FormResponse(FormStep.TIMING, this.records)); // tell parent component that form ist ok
     }
@@ -93,6 +95,7 @@ export class FlightTimingComponent implements OnInit, IFormResponse {
       let ms = real.getTime() - planned.getTime();
       let sec = ms / 1000;
       let hours = sec / 3600;
+      this.delayTime = hours;
       this.delay = hours >= 3 ? `${hours} Stunden verspätet` : `Verspätung liegt unter 3 Stunden (${hours})`;
     }
   }
