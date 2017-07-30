@@ -16,7 +16,7 @@
       <ng-content select=".plannedTime"></ng-content>
       <input (keyup)="onChange()" formControlName="hour" placeholder="hh:mm">
     </div>
-    <div  [ngClass]="{'error': (form.controls.hourReal.dirty && form.controls.hourReal.errors ), 'disabled':processing}" class="required field">
+    <div [ngClass]="{'error': (form.controls.hourReal.dirty && form.controls.hourReal.errors ), 'disabled':processing}" class="required field">
       <ng-content select=".realTime"></ng-content>
       <input (keyup)="onChange()" formControlName="hourReal" placeholder="hh:mm">
     </div>
