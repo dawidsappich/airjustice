@@ -1,0 +1,29 @@
+<div class="ui text container first">
+  <h2 class="ui header">Grund
+    <div class="sub header">Unter welchen Umstädnen ist die Verspätung aufgetreten?</div>
+  </h2>
+
+  <form [formGroup]="form" (ngSubmit)="process()" class="ui form" novalidate>
+    <div [ngClass]="{'disabled':processing}" class="required field">
+      <label>{{ formfieldvalues?.display }}</label>
+      <select formControlName="reason" class="ui dropdown" id="reasonList">
+        <option *ngFor="let item of formfieldvalues?.values" value="{{item?.value}}">{{item?.display}}</option>
+      </select>
+    </div>
+    <button [class.disabled]="!form.valid" type="text" class="ui primary button">Weiter</button>
+  </form>
+
+
+</div>
+
+<!--will be rendered when user choose differentReason  -->
+<ng-template #tpl>
+  <div class="ui text container additional">
+    <div class="ui form">
+      <div class="field">
+        <label>Anderer Grund</label>
+        <textarea rows="4" placeholder="Wird noch nicht ausgewertet"></textarea>
+      </div>
+    </div>
+  </div>
+</ng-template>
