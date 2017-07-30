@@ -6,10 +6,20 @@
       <input (keyup)="search($event.target.value)" formControlName="airport" placeholder="Flughafen">
     </div>
     <div [ngClass]="{'disabled':processing}" class="required field">
-      <ng-content select=".prupose"></ng-content>
-      <input (keyup)="onChange()" formControlName="time" placeholder="Zeit">
+      <ng-content select=".plannedDate"></ng-content>
+      <input (keyup)="onChange()" formControlName="date" placeholder="dd.mm.yyyy">
     </div>
+  </div>
 
+  <div class="fields">
+    <div [ngClass]="{'error': (form.controls.hour.dirty && form.controls.hour.errors ), 'disabled':processing}" class="required field">
+      <ng-content select=".plannedTime"></ng-content>
+      <input (keyup)="onChange()" formControlName="hour" placeholder="hh:mm">
+    </div>
+    <div  [ngClass]="{'error': (form.controls.hourReal.dirty && form.controls.hourReal.errors ), 'disabled':processing}" class="required field">
+      <ng-content select=".realTime"></ng-content>
+      <input (keyup)="onChange()" formControlName="hourReal" placeholder="hh:mm">
+    </div>
   </div>
 
 </form>

@@ -42,7 +42,15 @@ export class SearchFlightComponent implements OnInit {
     this.searchTerms = new Subject<string>();
     this.form = this.fb.group({
       airport: ['', Validators.required],
-      time: ['', Validators.required]
+      date: ['', Validators.required],
+      hour: ['', Validators.compose([
+        Validators.required,
+        Validators.pattern(/([01]?[0-9]|2[0-3]):[0-5][0-9]/)
+      ])],
+      hourReal: ['', Validators.compose([
+        Validators.required,
+        Validators.pattern(/([01]?[0-9]|2[0-3]):[0-5][0-9]/)
+      ])]
     });
 
     this.results = this.searchTerms
@@ -67,14 +75,14 @@ export class SearchFlightComponent implements OnInit {
 
   disableForm() {
     this.form.get('airport').disable();
-    this.form.get('time').disable();
+    this.form.get('date').disable();
     this.form.disable();
   }
 
   ensableForm() {
     this.form.enable();
     this.form.get('airport').enable();
-    this.form.get('time').enable();
+    this.form.get('date').enable();
   }
 
 }

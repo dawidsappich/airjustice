@@ -1,15 +1,23 @@
 <div class="ui text container first">
-  <h2 class="ui dividing header">Details zum Flug</h2>
+  <h2 class="ui header">Details zum Flug</h2>
+
+  <div class="ui horizontal divider push">Start</div>
 
   <!--Content Projection for labels in child Component -->
   <search-flight (selected)="doCheck()">
-    <label class="label">Start</label>
-    <label class="prupose">Abflug</label>
+    <label class="label">Startflughafen</label>
+    <label class="plannedDate">Abflugsdatum</label>
+    <label class="plannedTime">Geplante Abflugzeit</label>
+    <label class="realTime">Tatsächliche Abflugzeit</label>
   </search-flight>
 
+  <div class="ui horizontal divider">Ziel</div>
+
   <search-flight (selected)="doCheck()">
-    <label class="label">Ziel</label>
-    <label class="prupose">Ankunft</label>
+    <label class="label">Zielflughafen</label>
+    <label class="plannedDate">Ankunftsdatum</label>
+    <label class="plannedTime">Geplante Ankunftszeit</label>
+    <label class="realTime">Tatsächliche Ankunftszeit </label>
   </search-flight>
 
   <button [class.disabled]="!isChecked" (click)="process()" class="ui primary button" type="text">Weiter</button>

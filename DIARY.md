@@ -39,3 +39,16 @@
 ## Samstag 29.07.2017
 
 + Das dynamische Laden von Formbestandteilen funktioniert jetzt. Habe es so generisch wie möglcih gehalten. Alle Formkompnenten impoentieren ein Inteface, das als API zwischen Formconatiner und den Kindkomponenten dient. Nach jedem _FormStep_ werden die Eingaben evaluiert, das Model _FormState_ bestimmt den nächsten Schritt, und gibt dem _FormContainer_ die Form zurück, die gerendert werden soll. Funktioniert gut, so dass ich mich jetzt auf die einzelnen Komponenten konzentierein kann :)
+
+## Soontag 30.07.2017
+
++ TODO Liste für heute erstellt
+  + [x] Bezeichner für Formulare definieren und in Model FormStep hinterlegen
+  + [x] Im Formular TIMIMG die Ab- und Ankunftszeit als Felder hinzufügen
+  + [x] Richtige _ProblemCase_ Werte in DB hinterlegen, damit sie in Formular INITIAL richtig angezeigt werden
+  + [ ] _FormState_ nach INITIAL anpassen, so dass auch _ProblemCase_ bei nächster Formularwahl berücksichtigt wird
+  + [ ] Methode yum berechnen von Delta t in Formular TIMING hinzufügen
+  + [ ] Datenmodell für Matrix der Distanzen der Flughäfen definieren
+  + [ ] Daten aus Matrix Distanzen in DB importieren
+  + [ ] Formular NOCLAIMPOSSIBLE definieren
+  + [ ] FormState bei TIMING so anapssen, dass Delta t berücksichtigt wird
