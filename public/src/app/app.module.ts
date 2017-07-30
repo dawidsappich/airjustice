@@ -1,3 +1,4 @@
+import { ChoiceTrackerService } from './services/choice-tracker.service';
 import { DataCollectionService } from './services/data-collection.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -32,7 +33,7 @@ import { FlightTimingComponent } from './components/flight-timing/flight-timing.
     HttpModule,
     AppRoutingModule
   ],
-  providers: [DataCollectionService],
+  providers: [DataCollectionService, ChoiceTrackerService],
   bootstrap: [AppComponent]
 })
 
