@@ -1,3 +1,4 @@
+import { NoclaimComponent } from './../components/noclaim/noclaim.component';
 import { ChoiceTrackerService } from './../services/choice-tracker.service';
 import { InitialFormComponent } from './../components/initial-form/initial-form.component';
 import { FlightTimingComponent } from './../components/flight-timing/flight-timing.component';
@@ -21,7 +22,8 @@ export class FormState {
 		this.nextStep = FormStep.TIMING;
 		this.forms = new Map();
 		this.forms.set(FormStep.INITIAL, InitialFormComponent);
-		this.forms.set(FormStep.TIMING, FlightTimingComponent)
+		this.forms.set(FormStep.TIMING, FlightTimingComponent);
+		this.forms.set(FormStep.NOCALIM, NoclaimComponent);
 	}
 
 	getCurrentStep(): FormStep {
@@ -40,8 +42,11 @@ export class FormState {
 		}
 
 		if (response.origin === FormStep.TIMING) {
-			if (this.userChoices.getChoice(FormStep.INITIAL).problemCase === 'delayedFlight') {
-				console.log('DELAYED FLIGHT');
+			if (this.userChoices.getChoice(FormStep.INITIAL).problemCase === 'delayedFlight' && response.results[response.results.length - 1].flightDelayedAmount >= 3) {
+				// TODO: Render form REASON
+			} else if (this.userChoices.getChoice(FormStep.INITIAL).problemCase === 'delayedFlight' && response.results[response.results.length - 1].flightDelayedAmount < 3) {
+				this.currentStep = FormStep.NOCALIM;
+				return this.forms.get(this.getCurrentStep());
 			}
 		}
 	}

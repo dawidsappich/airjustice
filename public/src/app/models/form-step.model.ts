@@ -14,5 +14,6 @@ export enum FormStep {
 	USERCONACTINFO = 27, //12
 	SUMMARY = 30, // 13
 	ASSIGMENT = 33, // 13
+	NOCALIM = 36, // Ende wenn verspätung weniger als 3 Stunden beträgt
 	// TODO: Define all step
 }
