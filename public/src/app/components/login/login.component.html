@@ -4,13 +4,15 @@
   <form [formGroup]="form" (ngSubmit)="login()" class="ui form" novalidate>
     <div class="required field">
       <label>Benutzer</label>
-      <input formControlName="user" placeholder="Benutzername">
+      <input formControlName="username" placeholder="Benutzername">
     </div>
     <div class="required field">
       <label>Passwort</label>
-      <input formControlName="pass" placeholder="Passswort">
+      <input type="password" formControlName="password" placeholder="Passswort">
     </div>
     <button [class.disabled]="!form.valid" class="ui button primary" type="text">Login</button>
   </form>
+
+  <div>{{message}}</div>
 
 </div>

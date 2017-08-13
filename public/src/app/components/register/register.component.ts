@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { DataCollectionService } from './../../services/data-collection.service';
 import { Validators } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
@@ -13,8 +14,9 @@ export class RegisterComponent implements OnInit {
 
   form: FormGroup;
   message: string;
+  success: boolean;
 
-  constructor(private fb: FormBuilder, private dcs: DataCollectionService) { }
+  constructor(private fb: FormBuilder, private dcs: DataCollectionService, private router: Router) { }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -23,13 +25,11 @@ export class RegisterComponent implements OnInit {
         Validators.email
       ])],
       username: ['', Validators.compose([
-        Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(20)
+        Validators.required
       ])],
       password: ['', Validators.compose([
         Validators.required,
-        Validators.minLength(8)
+        Validators.minLength(6)
       ])]
     })
   }
@@ -42,7 +42,14 @@ export class RegisterComponent implements OnInit {
       password: this.form.get('password').value
     }
 
-    this.dcs.registerUser(user).subscribe(res => this.message = res.message);
+    this.dcs.registerUser(user).subscribe(res => {
+      this.success = res.success;
+      this.message = res.message;
+    });
+
+    setTimeout(() => {
+      this.router.navigate(['home'])
+    }, 2000);
 
   }
 

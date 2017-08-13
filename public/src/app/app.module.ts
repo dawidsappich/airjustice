@@ -1,3 +1,5 @@
+import { NoAuthGuard } from './guards/noAuth.guard';
+import { AuthGuard } from './guards/auth.guard';
 import { ChoiceTrackerService } from './services/choice-tracker.service';
 import { DataCollectionService } from './services/data-collection.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -41,7 +43,7 @@ import { RegisterComponent } from './components/register/register.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [DataCollectionService, ChoiceTrackerService],
+  providers: [DataCollectionService, ChoiceTrackerService, AuthGuard, NoAuthGuard],
   bootstrap: [AppComponent]
 })
 

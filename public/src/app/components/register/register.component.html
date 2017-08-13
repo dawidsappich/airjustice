@@ -4,7 +4,7 @@
   <form [formGroup]="form" (ngSubmit)="register()" class="ui form" novalidate>
     <div class="required field">
       <label>Email</label>
-      <input formControlName="email" placeholder="Email">
+      <input type="email" formControlName="email" placeholder="Email">
     </div>
     <div class="required field">
       <label>Benutzer</label>
@@ -12,7 +12,7 @@
     </div>
     <div class="required field">
       <label>Passwort</label>
-      <input formControlName="password" placeholder="Passwort">
+      <input type="password" formControlName="password" placeholder="Passwort">
     </div>
     <button [class.disabled]="!form.valid" class="ui button primary" type="text">Register</button>
   </form>

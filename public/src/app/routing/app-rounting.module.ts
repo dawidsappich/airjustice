@@ -5,6 +5,8 @@ import { FormContainerComponent } from './../components/form-container/form-cont
 import { HomeComponent } from './../components/home/home.component';
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { AuthGuard } from "./../guards/auth.guard";
+import { NoAuthGuard } from "./../guards/noAuth.guard";
 
 const routes: Routes = [
 	{
@@ -13,15 +15,18 @@ const routes: Routes = [
 	},
 	{
 		path: 'login',
-		component: LoginComponent
+		component: LoginComponent,
+		canActivate: [NoAuthGuard]
 	},
 	{
 		path: 'register',
-		component: RegisterComponent
+		component: RegisterComponent,
+		canActivate: [NoAuthGuard]
 	},
 	{
 		path: 'forms',
-		component: FormContainerComponent
+		component: FormContainerComponent,
+		canActivate: [AuthGuard]
 	},
 	{
 		path: 'reason',

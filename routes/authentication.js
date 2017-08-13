@@ -1,5 +1,7 @@
 const API = require('../config/api');
 const User = require('../models/user');
+const jwt = require('jsonwebtoken');
+const config = require('../config/database');
 
 module.exports = router => {
 
@@ -59,8 +61,21 @@ module.exports = router => {
 			User.findOne({ username: req.body.username.toLowerCase() }, (err, user) => {
 				if (err) {
 					res.json({ success: false, message: err });
+				} else if (!user) {
+					res.json({ success: true, message: `user '${req.body.username}' not found` });
 				} else {
-					res.json({ success: true, message: user });
+					console.log(req.body.password);
+					// compare password from login and DB
+					const validPassword = user.comparePassword(req.body.password);
+					if (!validPassword) {
+						res.json({ success: false, message: 'password does not match' });
+					} else {
+
+						// generate jwt
+						const token = jwt.sign({ userId: user._id }, config.secret, { expiresIn: '24h' });
+
+						res.json({ success: true, message: 'logged in', token: token, user: { username: user.username } });
+					}
 				}
 			})
 		}
