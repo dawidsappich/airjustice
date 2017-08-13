@@ -9,6 +9,7 @@ const morgan = require('morgan');
 const cors = require('cors');// ONLY FOR DEVELOPMENT
 const PORT = 5000;
 const PORT_DEV = 4200;
+const auth = require('./routes/authentication')(router);
 const dataServiceRoute = require('./routes/dataService')(router);
 const records = require('./routes/records')(router);
 
@@ -26,6 +27,7 @@ console.warn(`!!!!!! CORS is allowed for localhost:${PORT_DEV} REMOVE before dep
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
 // handle routes with this router-configurations
+app.use('/auth', auth);
 app.use('/dataService', dataServiceRoute);
 app.use('/records', records);
 

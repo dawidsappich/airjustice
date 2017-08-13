@@ -8,6 +8,7 @@ const API = require('../config/api');
  */
 module.exports = (router) => {
 
+
 	/**
 	 * Intercepts all incoming requets to this route to check if the API_KEY is set and valid
 	 * Only authorized requests are valid and will be handled further
