@@ -5,12 +5,15 @@ const app = express();
 const bodyparser = require('body-parser');
 const mongoose = require('mongoose');
 const config = require('./config/database');
+const morgan = require('morgan');
 const cors = require('cors');// ONLY FOR DEVELOPMENT
 const PORT = 5000;
 const PORT_DEV = 4200;
 const dataServiceRoute = require('./routes/dataService')(router);
 const records = require('./routes/records')(router);
 
+// log rquests
+app.use(morgan('dev'));
 
 // ONLY FOR DEVELOPMENT
 // allow CORS
@@ -43,12 +46,6 @@ mongoose.connect(config.uri, { useMongoClient: true }, err => {
 });
 
 // setup folder for static content
-app.use(express.static(__dirname + '/public/dist/'));
-
-// Routing
-app.get('/', (req, res) => {
-	res.sendFile(path.join(__dirname, '/public/dist/index.html'));
-})
-
+app.use(express.static(__dirname + '/public/src/'));
 
 app.listen(PORT);
