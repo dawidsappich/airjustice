@@ -16,6 +16,7 @@ import { DatePickerComponent } from './components/date-picker/date-picker.compon
 import { FlightTimingComponent } from './components/flight-timing/flight-timing.component';
 import { NoclaimComponent } from './components/noclaim/noclaim.component';
 import { ReasonComponent } from './components/reason/reason.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ReasonComponent } from './components/reason/reason.component';
     DatePickerComponent,
     FlightTimingComponent,
     NoclaimComponent,
-    ReasonComponent
+    ReasonComponent,
+    LoginComponent
   ],
   entryComponents: [InitialFormComponent, FlightTimingComponent, NoclaimComponent, ReasonComponent],
   imports: [

@@ -1,3 +1,4 @@
+import { LoginComponent } from './../components/login/login.component';
 import { ReasonComponent } from './../components/reason/reason.component';
 import { FormContainerComponent } from './../components/form-container/form-container.component';
 import { HomeComponent } from './../components/home/home.component';
@@ -8,6 +9,10 @@ const routes: Routes = [
 	{
 		path: '',
 		component: HomeComponent
+	},
+	{
+		path: 'login',
+		component:LoginComponent
 	},
 	{
 		path: 'forms',
