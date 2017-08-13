@@ -1,3 +1,4 @@
+import { RegisterComponent } from './../components/register/register.component';
 import { LoginComponent } from './../components/login/login.component';
 import { ReasonComponent } from './../components/reason/reason.component';
 import { FormContainerComponent } from './../components/form-container/form-container.component';
@@ -12,7 +13,11 @@ const routes: Routes = [
 	},
 	{
 		path: 'login',
-		component:LoginComponent
+		component: LoginComponent
+	},
+	{
+		path: 'register',
+		component: RegisterComponent
 	},
 	{
 		path: 'forms',
@@ -20,7 +25,7 @@ const routes: Routes = [
 	},
 	{
 		path: 'reason',
-		component:ReasonComponent
+		component: ReasonComponent
 	},
 	{
 		path: '**',

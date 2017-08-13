@@ -17,6 +17,7 @@ import { FlightTimingComponent } from './components/flight-timing/flight-timing.
 import { NoclaimComponent } from './components/noclaim/noclaim.component';
 import { ReasonComponent } from './components/reason/reason.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { LoginComponent } from './components/login/login.component';
     FlightTimingComponent,
     NoclaimComponent,
     ReasonComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   entryComponents: [InitialFormComponent, FlightTimingComponent, NoclaimComponent, ReasonComponent],
   imports: [

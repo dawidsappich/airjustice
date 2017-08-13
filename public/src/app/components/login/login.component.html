@@ -1,5 +1,5 @@
 <div class="ui text container first">
-  <h2 class="ui dividing header">Allgemeine Informationen</h2>
+  <h2 class="ui dividing header">Login</h2>
 
   <form [formGroup]="form" (ngSubmit)="login()" class="ui form" novalidate>
     <div class="required field">
@@ -8,7 +8,7 @@
     </div>
     <div class="required field">
       <label>Passwort</label>
-      <input formControlName="pass" placeholder="Benutzername">
+      <input formControlName="pass" placeholder="Passswort">
     </div>
     <button [class.disabled]="!form.valid" class="ui button primary" type="text">Login</button>
   </form>

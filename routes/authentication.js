@@ -36,15 +36,15 @@ module.exports = router => {
 				password: req.body.password
 			});
 
-			res.send('user saved');
+			// res.json({ success: true, message: 'user saved' });
 			// save user to DB
-			// user.save(err => {
-			// 	if (err) {
-			// 		res.json({ success: false, message: 'user could not save to DB', err });
-			// 	} else {
-			// 		res.json({ success: true, message: 'user saved to DB' });
-			// 	}
-			// })
+			user.save(err => {
+				if (err) {
+					res.json({ success: false, message: 'user could not save to DB', err });
+				} else {
+					res.json({ success: true, message: 'user saved to DB' });
+				}
+			})
 		}
 
 

@@ -29,6 +29,11 @@ export class DataCollectionService {
     return this._http.get(`${this.domain}/dataService/forms/${field}`, this.options).map(res => res.json().message);
   }
 
+  registerUser(user: any) {
+    this.createAuthApiHeaders();
+    return this._http.post(`${this.domain}/auth/register`, user, this.options).map(res => res.json());
+  }
+
   private createAuthApiHeaders() {
     this.options = new RequestOptions({
       headers: new Headers({
