@@ -1,8 +1,12 @@
 .ui.animated.selection.list {
 	position:absolute;
-	width: 50vw;
+	width: 30rem;
+	top: 50px;
 	z-index: 10;
-	background-color: white;
+	background-color: #C1E1FF;
 	border-width: 2px;
-	border-color: black;
+}
+
+.ui.animated.selection:active {
+	border: 0.5px solid grey;
 }
