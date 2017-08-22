@@ -1,6 +1,7 @@
 .ui.animated.selection.list {
 	position:absolute;
-	width: 30rem;
+	width: 328px;
+	left:10px;
 	top: 50px;
 	z-index: 10;
 	background-color: #C1E1FF;
